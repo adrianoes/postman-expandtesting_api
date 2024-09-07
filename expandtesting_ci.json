@@ -1779,7 +1779,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1825,13 +1825,13 @@
 						"exec": [
 							"let responseUNBR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"11.3  - Check update an existing note - bad request success\", function () {\r",
+							"pm.test(\"11.3  - Check update an existing note - unauthorized request success\", function () {\r",
 							"    pm.expect(responseUNBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"11.3  - Check update an existing note - bad request status\", function () {\r",
+							"pm.test(\"11.3  - Check update an existing note - unauthorized request status\", function () {\r",
 							"    pm.expect(responseUNBR.status).to.be.equal(401);\r",
 							"});\r",
-							"pm.test(\"11.3  - Check update an existing note - bad request message\", function () {\r",
+							"pm.test(\"11.3  - Check update an existing note - unauthorized request message\", function () {\r",
 							"    pm.expect(responseUNBR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
 							"});"
 						],
@@ -1843,7 +1843,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
+							"pm.globals.set(\"note_category_UR\", _.sample(['Home', 'Work', 'Personal']));"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1860,7 +1860,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\":\"{{$randomWord}} {{$randomWord}}\",\r\n    \"description\":\"{{$randomWord}} {{$randomWord}} {{$randomWord}}\",\r\n    \"category\":\"{{note_category}}\",\r\n    \"completed\":\"{{$randomBoolean}}\"\r\n}",
+					"raw": "{\r\n    \"title\":\"{{$randomWord}} {{$randomWord}}\",\r\n    \"description\":\"{{$randomWord}} {{$randomWord}} {{$randomWord}}\",\r\n    \"category\":\"{{note_category_UR}}\",\r\n    \"completed\":\"{{$randomBoolean}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
