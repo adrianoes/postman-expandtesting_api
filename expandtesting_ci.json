@@ -1,0 +1,1140 @@
+{
+	"info": {
+		"_postman_id": "41c2f0a7-fb1c-4d9e-b373-60544cfe9987",
+		"name": "expandtesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17862371"
+	},
+	"item": [
+		{
+			"name": "1 - Check the health of the API Notes services",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseCAPIH = pm.response.json();\r",
+							"\r",
+							"pm.test(\"1 - Check api health success\", function () {\r",
+							"    pm.expect(responseCAPIH.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"1 - Check api health status\", function () {\r",
+							"    pm.expect(responseCAPIH.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"1 - Check api health message\", function () {\r",
+							"    pm.expect(responseCAPIH.message).to.be.equal(\"Notes API is Running\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health-check",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Creates a new user account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseCU = pm.response.json();\r",
+							"let requestCU = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"pm.globals.set(\"user_id\", responseCU.data.id);\r",
+							"pm.globals.set(\"user_name\", responseCU.data.name);\r",
+							"pm.globals.set(\"user_email\", responseCU.data.email);\r",
+							"pm.globals.set(\"user_password\", requestCU.password);\r",
+							"\r",
+							"pm.test(\"2 - Check creates a new user account success\", function () {\r",
+							"    pm.expect(responseCU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"2 - Check creates a new user account status\", function () {\r",
+							"    pm.expect(responseCU.status).to.be.equal(201);\r",
+							"});\r",
+							"pm.test(\"2 - Check creates a new user account message\", function () {\r",
+							"    pm.expect(responseCU.message).to.be.equal(\"User account created successfully\");\r",
+							"});\r",
+							"pm.test(\"2 - Assert created name\", function () {\r",
+							"    pm.expect(responseCU.data.name).to.be.equal(requestCU.name);\r",
+							"});\r",
+							"pm.test(\"Assert created e-mail\", function () {\r",
+							"    pm.expect(responseCU.data.email).to.be.equal(requestCU.email);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let user_email_upper_case = pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
+							"let user_email_lower_case = user_email_upper_case.toLowerCase();\r",
+							"pm.globals.set(\"user_email\", user_email_lower_case);\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"email\":\"{{user_email}}\",\r\n    \"password\":\"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Log in as an existing user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseLU = pm.response.json();\r",
+							"\r",
+							"pm.globals.set(\"user_token\", responseLU.data.token);\r",
+							"\r",
+							"pm.test(\"3 - Check log in as an existing user success\", function () {\r",
+							"    pm.expect(responseLU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"3 - Check log in as an existing user status\", function () {\r",
+							"    pm.expect(responseLU.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"3 - Check log in as an existing user message\", function () {\r",
+							"    pm.expect(responseLU.message).to.be.equal(\"Login successful\");\r",
+							"});\r",
+							"pm.test(\"3 - Assert user id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseLU.data.id);\r",
+							"});\r",
+							"pm.test(\"3 - Assert user name\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseLU.data.name);\r",
+							"});\r",
+							"pm.test(\"3 - Assert user e-mail\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseLU.data.email);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"{{user_email}}\",\r\n    \"password\":\"{{user_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 - Retrieve user profile information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseRU = pm.response.json();\r",
+							"\r",
+							"pm.test(\"4 - Check retrieve user profile information success\", function () {\r",
+							"    pm.expect(responseRU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"4 - Check retrieve user profile information status\", function () {\r",
+							"    pm.expect(responseRU.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"4 - Check retrieve user profile information message\", function () {\r",
+							"    pm.expect(responseRU.message).to.be.equal(\"Profile successful\");\r",
+							"});\r",
+							"pm.test(\"4 - Assert user id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseRU.data.id);\r",
+							"});\r",
+							"pm.test(\"4 - Assert user name\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseRU.data.name);\r",
+							"});\r",
+							"pm.test(\"4 - Assert user e-mail\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseRU.data.email);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/users/profile",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Update the user profile information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseUU = pm.response.json();\r",
+							"let requestUU = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"pm.globals.set(\"user_name\", requestUU.name);\r",
+							"pm.globals.set(\"user_phone\", requestUU.phone);\r",
+							"pm.globals.set(\"user_company\", requestUU.company);\r",
+							"\r",
+							"pm.test(\"5 - Check update the user profile information success\", function () {\r",
+							"    pm.expect(responseUU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"5 - Check update the user profile information status\", function () {\r",
+							"    pm.expect(responseUU.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"5 - Check update the user profile information message\", function () {\r",
+							"    pm.expect(responseUU.message).to.be.equal(\"Profile updated successful\");\r",
+							"});\r",
+							"pm.test(\"5 - Assert user id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseUU.data.id);\r",
+							"});\r",
+							"pm.test(\"5 - Assert user name\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseUU.data.name);\r",
+							"});\r",
+							"pm.test(\"5 - Assert user e-mail\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseUU.data.email);\r",
+							"});\r",
+							"pm.test(\"5 - Assert user phone\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_phone\")).to.be.equal(responseUU.data.phone);\r",
+							"});\r",
+							"pm.test(\"5 - Assert user company\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_company\")).to.be.equal(responseUU.data.company);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"user_phone\", _.random(10000000,999999999999));\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"phone\":\"{{user_phone}}\",\r\n    \"company\":\"{{$randomCompanyName}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/profile",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 - Change a user's password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseCUP = pm.response.json();\r",
+							"let requestCUP = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"pm.globals.set(\"user_password\", requestCUP.newPassword);\r",
+							"\r",
+							"pm.test(\"6 - Check api health success\", function () {\r",
+							"    pm.expect(responseCUP.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"6 - Check api health status\", function () {\r",
+							"    pm.expect(responseCUP.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"6 - Check api health message\", function () {\r",
+							"    pm.expect(responseCUP.message).to.be.equal(\"The password was successfully updated\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currentPassword\":\"{{user_password}}\",\r\n    \"newPassword\":\"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/change-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 - Creates a new note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseCN = pm.response.json();\r",
+							"let requestCN = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"pm.globals.set(\"note_title\", requestCN.title);\r",
+							"pm.globals.set(\"note_description\", requestCN.description);\r",
+							"pm.globals.set(\"note_category\", requestCN.category);\r",
+							"pm.globals.set(\"note_id\", responseCN.data.id);\r",
+							"pm.globals.set(\"note_completed\", responseCN.data.completed);\r",
+							"pm.globals.set(\"note_created_at\", responseCN.data.created_at);\r",
+							"pm.globals.set(\"note_updated_at\", responseCN.data.updated_at);\r",
+							"\r",
+							"pm.test(\"7 - Check creates a new note success\", function () {\r",
+							"    pm.expect(responseCN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"7 - Check creates a new note status\", function () {\r",
+							"    pm.expect(responseCN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"7 - Check creates a new note message\", function () {\r",
+							"    pm.expect(responseCN.message).to.be.equal(\"Note successfully created\");\r",
+							"});\r",
+							"pm.test(\"7 - Assert note title\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseCN.data.title);\r",
+							"});\r",
+							"pm.test(\"7 - Assert note description\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseCN.data.description);\r",
+							"});\r",
+							"pm.test(\"7 - Assert note category\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseCN.data.category);\r",
+							"});\r",
+							"pm.test(\"7 - Assert user id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseCN.data.user_id);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"{{$randomWord}} {{$randomWord}}\",\r\n    \"description\":\"{{$randomWord}} {{$randomWord}} {{$randomWord}}\",\r\n    \"category\":\"{{note_category}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/notes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8 - Creates another new note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseCAN = pm.response.json();\r",
+							"let requestCAN = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"pm.globals.set(\"note_2_title\", requestCAN.title);\r",
+							"pm.globals.set(\"note_2_description\", requestCAN.description);\r",
+							"pm.globals.set(\"note_2_category\", requestCAN.category);\r",
+							"pm.globals.set(\"note_2_id\", responseCAN.data.id);\r",
+							"pm.globals.set(\"note_2_completed\", responseCAN.data.completed);\r",
+							"pm.globals.set(\"note_2_created_at\", responseCAN.data.created_at);\r",
+							"pm.globals.set(\"note_2_updated_at\", responseCAN.data.updated_at);\r",
+							"\r",
+							"pm.test(\"8 - Check creates another new note success\", function () {\r",
+							"    pm.expect(responseCAN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"8 - Check creates another new note status\", function () {\r",
+							"    pm.expect(responseCAN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"8 - Check creates another new note message\", function () {\r",
+							"    pm.expect(responseCAN.message).to.be.equal(\"Note successfully created\");\r",
+							"});\r",
+							"pm.test(\"8 - Assert note title\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_title\")).to.be.equal(responseCAN.data.title);\r",
+							"});\r",
+							"pm.test(\"8 - Assert note description\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_description\")).to.be.equal(responseCAN.data.description);\r",
+							"});\r",
+							"pm.test(\"8 - Assert note category\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_category\")).to.be.equal(responseCAN.data.category);\r",
+							"});\r",
+							"pm.test(\"8 - Assert user id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseCAN.data.user_id);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"note_2_category\", _.sample(['Home', 'Work', 'Personal']));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"{{$randomWord}} {{$randomWord}}\",\r\n    \"description\":\"{{$randomWord}} {{$randomWord}} {{$randomWord}}\",\r\n    \"category\":\"{{note_category}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/notes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9 - Get all notes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseGAN = pm.response.json();\r",
+							"\r",
+							"pm.test(\"9 - Check get all notes success\", function () {\r",
+							"    pm.expect(responseGAN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"9 - Check get all notes status\", function () {\r",
+							"    pm.expect(responseGAN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"9 - Check get all notes message\", function () {\r",
+							"    pm.expect(responseGAN.message).to.be.equal(\"Notes successfully retrieved\");\r",
+							"});\r",
+							"pm.test(\"9 - Assert note id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseGAN.data[1].id);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note title\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseGAN.data[1].title);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note description\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseGAN.data[1].description);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note category\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseGAN.data[1].category);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note completed\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_completed\")).to.be.equal(responseGAN.data[1].completed);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note created_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseGAN.data[1].created_at);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note updated_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_updated_at\")).to.be.equal(responseGAN.data[1].updated_at);\r",
+							"});\r",
+							"pm.test(\"9 - Assert user id for note\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseGAN.data[1].user_id);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note 2 id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_id\")).to.be.equal(responseGAN.data[0].id);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note 2 title\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_title\")).to.be.equal(responseGAN.data[0].title);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note 2 description\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_description\")).to.be.equal(responseGAN.data[0].description);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note 2 category\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_category\")).to.be.equal(responseGAN.data[0].category);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note 2 completed\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_completed\")).to.be.equal(responseGAN.data[0].completed);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note 2 created_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_created_at\")).to.be.equal(responseGAN.data[0].created_at);\r",
+							"});\r",
+							"pm.test(\"9 - Assert note 2 updated_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_2_updated_at\")).to.be.equal(responseGAN.data[0].updated_at);\r",
+							"});\r",
+							"pm.test(\"9 - Assert user id for note 2\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseGAN.data[0].user_id);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/notes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 - Get note by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseGN = pm.response.json();\r",
+							"\r",
+							"pm.test(\"10 - Check get note by ID success\", function () {\r",
+							"    pm.expect(responseGN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"10 - Check get note by ID status\", function () {\r",
+							"    pm.expect(responseGN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"10 - Check get note by ID message\", function () {\r",
+							"    pm.expect(responseGN.message).to.be.equal(\"Note successfully retrieved\");\r",
+							"});\r",
+							"pm.test(\"10 - Assert note id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseGN.data.id);\r",
+							"});\r",
+							"pm.test(\"10 - Assert note title\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseGN.data.title);\r",
+							"});\r",
+							"pm.test(\"10 - Assert note description\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseGN.data.description);\r",
+							"});\r",
+							"pm.test(\"10 - Assert note category\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseGN.data.category);\r",
+							"});\r",
+							"pm.test(\"10 - Assert note completed\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_completed\")).to.be.equal(responseGN.data.completed);\r",
+							"});\r",
+							"pm.test(\"10 - Assert note created_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseGN.data.created_at);\r",
+							"});\r",
+							"pm.test(\"10 - Assert note updated_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_updated_at\")).to.be.equal(responseGN.data.updated_at);\r",
+							"});\r",
+							"pm.test(\"10 - Assert user id for note\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseGN.data.user_id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/notes/{{note_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11 - Update an existing note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseUN = pm.response.json();\r",
+							"let requestUN = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"pm.globals.set(\"note_title\", requestUN.title);\r",
+							"pm.globals.set(\"note_description\", requestUN.description);\r",
+							"pm.globals.set(\"note_category\", requestUN.category);\r",
+							"pm.globals.set(\"note_completed\", requestUN.completed);\r",
+							"\r",
+							"pm.test(\"11 - Check update an existing note success\", function () {\r",
+							"    pm.expect(responseUN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"11 - Check update an existing note status\", function () {\r",
+							"    pm.expect(responseUN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"11 - Check update an existing note message\", function () {\r",
+							"    pm.expect(responseUN.message).to.be.equal(\"Note successfully Updated\");\r",
+							"});\r",
+							"pm.test(\"11 - Assert note id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseUN.data.id);\r",
+							"});\r",
+							"pm.test(\"11 - Assert note title\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseUN.data.title);\r",
+							"});\r",
+							"pm.test(\"11 - Assert note description\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseUN.data.description);\r",
+							"});\r",
+							"pm.test(\"11 - Assert note category\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseUN.data.category);\r",
+							"});\r",
+							"pm.test(\"11 - Assert note completed\", function () {\r",
+							"    // It uses == due to the fact that the compared values are a boolean and a string\r",
+							"    pm.expect(pm.globals.get(\"note_completed\")) == (responseUN.data.completed);\r",
+							"});\r",
+							"pm.test(\"11 - Assert note created_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseUN.data.created_at);\r",
+							"});\r",
+							"pm.test(\"11 - Assert user id for note\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseUN.data.user_id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"{{$randomWord}} {{$randomWord}}\",\r\n    \"description\":\"{{$randomWord}} {{$randomWord}} {{$randomWord}}\",\r\n    \"category\":\"{{note_category}}\",\r\n    \"completed\":\"{{$randomBoolean}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/notes/{{note_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12 - Update the completed status of a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseUCSN = pm.response.json();\r",
+							"let requestUCSN = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"pm.globals.set(\"note_completed\", requestUCSN.completed);\r",
+							"\r",
+							"pm.test(\"12 - Check update the completed status of a note success\", function () {\r",
+							"    pm.expect(responseUCSN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"12 - Check update the completed status of a note status\", function () {\r",
+							"    pm.expect(responseUCSN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"12 - Check update the completed status of a note message\", function () {\r",
+							"    pm.expect(responseUCSN.message).to.be.equal(\"Note successfully Updated\");\r",
+							"});\r",
+							"pm.test(\"12 - Assert note id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseUCSN.data.id);\r",
+							"});\r",
+							"pm.test(\"12 - Assert note title\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseUCSN.data.title);\r",
+							"});\r",
+							"pm.test(\"12 - Assert note description\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseUCSN.data.description);\r",
+							"});\r",
+							"pm.test(\"12 - Assert note category\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseUCSN.data.category);\r",
+							"});\r",
+							"pm.test(\"12 - Assert note completed\", function () {\r",
+							"    // It uses == due to the fact that the compared values are a boolean and a string\r",
+							"    pm.expect(pm.globals.get(\"note_completed\")) == (responseUCSN.data.completed);\r",
+							"});\r",
+							"pm.test(\"12 - Assert note created_at\", function () {\r",
+							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseUCSN.data.created_at);\r",
+							"});\r",
+							"pm.test(\"12 - Assert user id for note\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseUCSN.data.user_id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"note_completed\") == false) { \r",
+							"pm.globals.set(\"note_completed\", true);\r",
+							"}\r",
+							"else { \r",
+							"pm.globals.set(\"note_completed\", false);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"completed\":\"{{note_completed}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/notes/{{note_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13 - Delete a note by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseDN = pm.response.json();\r",
+							"\r",
+							"pm.test(\"13 - Check delete a note by ID success\", function () {\r",
+							"    pm.expect(responseDN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"13 - Check delete a note by ID status\", function () {\r",
+							"    pm.expect(responseDN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"13 - Check delete a note by ID message\", function () {\r",
+							"    pm.expect(responseDN.message).to.be.equal(\"Note successfully deleted\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/notes/{{note_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14 - Log out a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseLOU = pm.response.json();\r",
+							"\r",
+							"pm.test(\"14 - Check log out a user success\", function () {\r",
+							"    pm.expect(responseLOU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"14 - Check log out a user status\", function () {\r",
+							"    pm.expect(responseLOU.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"14 - Check log out a user message\", function () {\r",
+							"    pm.expect(responseLOU.message).to.be.equal(\"User has been successfully logged out\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/users/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "15 - Log in after log out",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseLIALOU = pm.response.json();\r",
+							"\r",
+							"pm.globals.set(\"user_token\", responseLIALOU.data.token);\r",
+							"\r",
+							"pm.test(\"15 - Check log in after log out success\", function () {\r",
+							"    pm.expect(responseLIALOU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"15 - Check log in after log out status\", function () {\r",
+							"    pm.expect(responseLIALOU.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"15 - Check log in after log out message\", function () {\r",
+							"    pm.expect(responseLIALOU.message).to.be.equal(\"Login successful\");\r",
+							"});\r",
+							"pm.test(\"15 - Assert user id\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseLIALOU.data.id);\r",
+							"});\r",
+							"pm.test(\"15 - Assert user name\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseLIALOU.data.name);\r",
+							"});\r",
+							"pm.test(\"15 - Assert user e-mail\", function () {\r",
+							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseLIALOU.data.email);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"{{user_email}}\",\r\n    \"password\":\"{{user_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16 - Delete user account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseDU = pm.response.json();\r",
+							"\r",
+							"pm.test(\"13 - Check delete user account success\", function () {\r",
+							"    pm.expect(responseDU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"13 - Check delete user account status\", function () {\r",
+							"    pm.expect(responseDU.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"13 - Check delete user account message\", function () {\r",
+							"    pm.expect(responseDU.message).to.be.equal(\"Account successfully deleted\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/users/delete-account",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"delete-account"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

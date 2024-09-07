@@ -1,0 +1,140 @@
+{
+	"id": "d77b98dc-17e0-4794-8d17-e8ca324a2522",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "https://practice.expandtesting.com/notes/api",
+			"enabled": true
+		},
+		{
+			"key": "user_name",
+			"value": "tester",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_email",
+			"value": "test@testing.com",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_token",
+			"value": "2ed23311996c4efc811e5d596636072ac1addbf04b9d45d2ac14083940d8c5d6",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_id",
+			"value": "66419a65553828014144788e",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_password",
+			"value": "Pwd12345",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_phone",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_company",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_title",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_description",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_completed",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_category",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_created_at",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_updated_at",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_2_category",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_2_title",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_2_description",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_2_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_2_completed",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_2_created_at",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_2_updated_at",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-09-07T09:24:43.612Z",
+	"_postman_exported_using": "Postman/11.11.1"
+}

@@ -1,0 +1,57 @@
+<<<<<<< HEAD
+name: expandtesting
+on:
+=======
+# This is a basic workflow to help you get started with Actions
+
+name: expandtesting
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+>>>>>>> 37ad6940871f934d32d5e12fdf6c94f112f3ae53
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+<<<<<<< HEAD
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+=======
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+>>>>>>> 37ad6940871f934d32d5e12fdf6c94f112f3ae53
+      - name: Step 1 Install Newman
+        run: npm install -g newman     
+      - name: Step 2 Install Newman-Reporter-Htmlextra
+        run: npm install -g newman-reporter-htmlextra
+      - name: Step 3 Execute collection
+<<<<<<< HEAD
+        run: newman run ./expandtesting_ci.json -g ./expandtesting_globals.json -r htmlextra --reporter-htmlextra-export ./results/report.html
+=======
+        run: newman run ./expandtesting_ci.json -g ./expandtesting_globals.json
+
+            # Runs a set of commands using the runners shell
+>>>>>>> 37ad6940871f934d32d5e12fdf6c94f112f3ae53
+      - name: Step 4 Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+            name: report
+            path: ./results/Report.html
+   
+
