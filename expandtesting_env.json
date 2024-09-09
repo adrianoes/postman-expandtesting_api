@@ -1,38 +1,46 @@
 {
-	"id": "d77b98dc-17e0-4794-8d17-e8ca324a2522",
+	"id": "96a4abf3-3923-4943-80b7-32ead54142ff",
+	"name": "expandtesting_env",
 	"values": [
 		{
 			"key": "base_url",
 			"value": "https://practice.expandtesting.com/notes/api",
+			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "user_name",
-			"value": "tester",
-			"type": "any",
+			"value": "Cecelia Pollich",
+			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "user_email",
-			"value": "test@testing.com",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "user_token",
-			"value": "2ed23311996c4efc811e5d596636072ac1addbf04b9d45d2ac14083940d8c5d6",
+			"value": "",
 			"type": "any",
 			"enabled": true
 		},
 		{
 			"key": "user_id",
-			"value": "66419a65553828014144788e",
+			"value": "",
 			"type": "any",
 			"enabled": true
 		},
 		{
 			"key": "user_password",
-			"value": "Pwd12345",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_email_BR",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "user_token",
+			"value": "",
 			"type": "any",
 			"enabled": true
 		},
@@ -49,7 +57,7 @@
 			"enabled": true
 		},
 		{
-			"key": "note_id",
+			"key": "note_category",
 			"value": "",
 			"type": "any",
 			"enabled": true
@@ -67,13 +75,13 @@
 			"enabled": true
 		},
 		{
-			"key": "note_completed",
+			"key": "note_id",
 			"value": "",
 			"type": "any",
 			"enabled": true
 		},
 		{
-			"key": "note_category",
+			"key": "note_completed",
 			"value": "",
 			"type": "any",
 			"enabled": true
@@ -86,6 +94,12 @@
 		},
 		{
 			"key": "note_updated_at",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "note_category_UR",
 			"value": "",
 			"type": "any",
 			"enabled": true
@@ -133,20 +147,13 @@
 			"enabled": true
 		},
 		{
-			"key": "user_email_BR",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_category_UR",
+			"key": "note_completed_UR",
 			"value": "",
 			"type": "any",
 			"enabled": true
 		}
 	],
-	"name": "Globals",
-	"_postman_variable_scope": "globals",
-	"_postman_exported_at": "2024-09-07T18:07:31.933Z",
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-09-09T05:49:25.996Z",
 	"_postman_exported_using": "Postman/11.11.1"
 }

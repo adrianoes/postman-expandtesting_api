@@ -73,10 +73,10 @@
 							"let responseCU = pm.response.json();\r",
 							"let requestCU = JSON.parse(pm.request.body.raw);\r",
 							"\r",
-							"pm.globals.set(\"user_id\", responseCU.data.id);\r",
-							"pm.globals.set(\"user_name\", responseCU.data.name);\r",
-							"pm.globals.set(\"user_email\", responseCU.data.email);\r",
-							"pm.globals.set(\"user_password\", requestCU.password);\r",
+							"pm.environment.set(\"user_id\", responseCU.data.id);\r",
+							"pm.environment.set(\"user_name\", responseCU.data.name);\r",
+							"pm.environment.set(\"user_email\", responseCU.data.email);\r",
+							"pm.environment.set(\"user_password\", requestCU.password);\r",
 							"\r",
 							"pm.test(\"2.1 - Check creates a new user account success\", function () {\r",
 							"    pm.expect(responseCU.success).to.be.equal(true);\r",
@@ -106,7 +106,7 @@
 						"exec": [
 							"let user_email_upper_case = pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
 							"let user_email_lower_case = user_email_upper_case.toLowerCase();\r",
-							"pm.globals.set(\"user_email\", user_email_lower_case);\r",
+							"pm.environment.set(\"user_email\", user_email_lower_case);\r",
 							"\r",
 							"\r",
 							"\r",
@@ -180,7 +180,7 @@
 						"exec": [
 							"let user_email_upper_case = pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
 							"let user_email_lower_case = user_email_upper_case.toLowerCase();\r",
-							"pm.globals.set(\"user_email_BR\", user_email_lower_case);\r",
+							"pm.environment.set(\"user_email_BR\", user_email_lower_case);\r",
 							"\r",
 							"\r",
 							"\r",
@@ -232,7 +232,7 @@
 						"exec": [
 							"let responseLU = pm.response.json();\r",
 							"\r",
-							"pm.globals.set(\"user_token\", responseLU.data.token);\r",
+							"pm.environment.set(\"user_token\", responseLU.data.token);\r",
 							"\r",
 							"pm.test(\"3.1 - Check log in as an existing user success\", function () {\r",
 							"    pm.expect(responseLU.success).to.be.equal(true);\r",
@@ -244,14 +244,24 @@
 							"    pm.expect(responseLU.message).to.be.equal(\"Login successful\");\r",
 							"});\r",
 							"pm.test(\"3.1 - Assert user id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseLU.data.id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseLU.data.id);\r",
 							"});\r",
 							"pm.test(\"3.1 - Assert user name\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseLU.data.name);\r",
+							"    pm.expect(pm.environment.get(\"user_name\")).to.be.equal(responseLU.data.name);\r",
 							"});\r",
 							"pm.test(\"3.1 - Assert user e-mail\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseLU.data.email);\r",
+							"    pm.expect(pm.environment.get(\"user_email\")).to.be.equal(responseLU.data.email);\r",
 							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -420,13 +430,13 @@
 							"    pm.expect(responseRU.message).to.be.equal(\"Profile successful\");\r",
 							"});\r",
 							"pm.test(\"4.1 - Assert user id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseRU.data.id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseRU.data.id);\r",
 							"});\r",
 							"pm.test(\"4.1 - Assert user name\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseRU.data.name);\r",
+							"    pm.expect(pm.environment.get(\"user_name\")).to.be.equal(responseRU.data.name);\r",
 							"});\r",
 							"pm.test(\"4 - Assert user e-mail\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseRU.data.email);\r",
+							"    pm.expect(pm.environment.get(\"user_email\")).to.be.equal(responseRU.data.email);\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -565,9 +575,9 @@
 							"let responseUU = pm.response.json();\r",
 							"let requestUU = JSON.parse(pm.request.body.raw);\r",
 							"\r",
-							"pm.globals.set(\"user_name\", requestUU.name);\r",
-							"pm.globals.set(\"user_phone\", requestUU.phone);\r",
-							"pm.globals.set(\"user_company\", requestUU.company);\r",
+							"pm.environment.set(\"user_name\", requestUU.name);\r",
+							"pm.environment.set(\"user_phone\", requestUU.phone);\r",
+							"pm.environment.set(\"user_company\", requestUU.company);\r",
 							"\r",
 							"pm.test(\"5.1 - Check update the user profile information success\", function () {\r",
 							"    pm.expect(responseUU.success).to.be.equal(true);\r",
@@ -579,19 +589,19 @@
 							"    pm.expect(responseUU.message).to.be.equal(\"Profile updated successful\");\r",
 							"});\r",
 							"pm.test(\"5.1 - Assert user id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseUU.data.id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseUU.data.id);\r",
 							"});\r",
 							"pm.test(\"5.1 - Assert user name\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseUU.data.name);\r",
+							"    pm.expect(pm.environment.get(\"user_name\")).to.be.equal(responseUU.data.name);\r",
 							"});\r",
 							"pm.test(\"5.1 - Assert user e-mail\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseUU.data.email);\r",
+							"    pm.expect(pm.environment.get(\"user_email\")).to.be.equal(responseUU.data.email);\r",
 							"});\r",
 							"pm.test(\"5.1 - Assert user phone\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_phone\")).to.be.equal(responseUU.data.phone);\r",
+							"    pm.expect(pm.environment.get(\"user_phone\")).to.be.equal(responseUU.data.phone);\r",
 							"});\r",
 							"pm.test(\"5.1 - Assert user company\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_company\")).to.be.equal(responseUU.data.company);\r",
+							"    pm.expect(pm.environment.get(\"user_company\")).to.be.equal(responseUU.data.company);\r",
 							"});\r",
 							"\r",
 							"\r",
@@ -605,7 +615,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"user_phone\", _.random(10000000,999999999999));\r",
+							"pm.environment.set(\"user_phone\", _.random(10000000,999999999999));\r",
 							""
 						],
 						"type": "text/javascript",
@@ -670,7 +680,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"user_phone\", _.random(10000000,999999999999));\r",
+							"pm.environment.set(\"user_phone\", _.random(10000000,999999999999));\r",
 							""
 						],
 						"type": "text/javascript",
@@ -735,7 +745,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"user_phone\", _.random(10000000,999999999999));\r",
+							"pm.environment.set(\"user_phone\", _.random(10000000,999999999999));\r",
 							""
 						],
 						"type": "text/javascript",
@@ -783,7 +793,7 @@
 							"let responseCUP = pm.response.json();\r",
 							"let requestCUP = JSON.parse(pm.request.body.raw);\r",
 							"\r",
-							"pm.globals.set(\"user_password\", requestCUP.newPassword);\r",
+							"pm.environment.set(\"user_password\", requestCUP.newPassword);\r",
 							"\r",
 							"pm.test(\"6.1 - Check api health success\", function () {\r",
 							"    pm.expect(responseCUP.success).to.be.equal(true);\r",
@@ -987,13 +997,13 @@
 							"let responseCN = pm.response.json();\r",
 							"let requestCN = JSON.parse(pm.request.body.raw);\r",
 							"\r",
-							"pm.globals.set(\"note_title\", requestCN.title);\r",
-							"pm.globals.set(\"note_description\", requestCN.description);\r",
-							"pm.globals.set(\"note_category\", requestCN.category);\r",
-							"pm.globals.set(\"note_id\", responseCN.data.id);\r",
-							"pm.globals.set(\"note_completed\", responseCN.data.completed);\r",
-							"pm.globals.set(\"note_created_at\", responseCN.data.created_at);\r",
-							"pm.globals.set(\"note_updated_at\", responseCN.data.updated_at);\r",
+							"pm.environment.set(\"note_title\", requestCN.title);\r",
+							"pm.environment.set(\"note_description\", requestCN.description);\r",
+							"pm.environment.set(\"note_category\", requestCN.category);\r",
+							"pm.environment.set(\"note_id\", responseCN.data.id);\r",
+							"pm.environment.set(\"note_completed\", responseCN.data.completed);\r",
+							"pm.environment.set(\"note_created_at\", responseCN.data.created_at);\r",
+							"pm.environment.set(\"note_updated_at\", responseCN.data.updated_at);\r",
 							"\r",
 							"pm.test(\"7.1 - Check creates a new note success\", function () {\r",
 							"    pm.expect(responseCN.success).to.be.equal(true);\r",
@@ -1005,16 +1015,16 @@
 							"    pm.expect(responseCN.message).to.be.equal(\"Note successfully created\");\r",
 							"});\r",
 							"pm.test(\"7.1 - Assert note title\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseCN.data.title);\r",
+							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseCN.data.title);\r",
 							"});\r",
 							"pm.test(\"7.1 - Assert note description\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseCN.data.description);\r",
+							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseCN.data.description);\r",
 							"});\r",
 							"pm.test(\"7.1 - Assert note category\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseCN.data.category);\r",
+							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseCN.data.category);\r",
 							"});\r",
 							"pm.test(\"7.1 - Assert user id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseCN.data.user_id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseCN.data.user_id);\r",
 							"});\r",
 							"\r",
 							""
@@ -1027,7 +1037,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
+							"pm.environment.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1165,7 +1175,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"note_category_UR\", _.sample(['Home', 'Work', 'Personal']));"
+							"pm.environment.set(\"note_category_UR\", _.sample(['Home', 'Work', 'Personal']));"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1214,13 +1224,13 @@
 							"let responseCAN = pm.response.json();\r",
 							"let requestCAN = JSON.parse(pm.request.body.raw);\r",
 							"\r",
-							"pm.globals.set(\"note_2_title\", requestCAN.title);\r",
-							"pm.globals.set(\"note_2_description\", requestCAN.description);\r",
-							"pm.globals.set(\"note_2_category\", requestCAN.category);\r",
-							"pm.globals.set(\"note_2_id\", responseCAN.data.id);\r",
-							"pm.globals.set(\"note_2_completed\", responseCAN.data.completed);\r",
-							"pm.globals.set(\"note_2_created_at\", responseCAN.data.created_at);\r",
-							"pm.globals.set(\"note_2_updated_at\", responseCAN.data.updated_at);\r",
+							"pm.environment.set(\"note_2_title\", requestCAN.title);\r",
+							"pm.environment.set(\"note_2_description\", requestCAN.description);\r",
+							"pm.environment.set(\"note_2_category\", requestCAN.category);\r",
+							"pm.environment.set(\"note_2_id\", responseCAN.data.id);\r",
+							"pm.environment.set(\"note_2_completed\", responseCAN.data.completed);\r",
+							"pm.environment.set(\"note_2_created_at\", responseCAN.data.created_at);\r",
+							"pm.environment.set(\"note_2_updated_at\", responseCAN.data.updated_at);\r",
 							"\r",
 							"pm.test(\"8 - Check creates another new note success\", function () {\r",
 							"    pm.expect(responseCAN.success).to.be.equal(true);\r",
@@ -1232,16 +1242,16 @@
 							"    pm.expect(responseCAN.message).to.be.equal(\"Note successfully created\");\r",
 							"});\r",
 							"pm.test(\"8 - Assert note title\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_title\")).to.be.equal(responseCAN.data.title);\r",
+							"    pm.expect(pm.environment.get(\"note_2_title\")).to.be.equal(responseCAN.data.title);\r",
 							"});\r",
 							"pm.test(\"8 - Assert note description\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_description\")).to.be.equal(responseCAN.data.description);\r",
+							"    pm.expect(pm.environment.get(\"note_2_description\")).to.be.equal(responseCAN.data.description);\r",
 							"});\r",
 							"pm.test(\"8 - Assert note category\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_category\")).to.be.equal(responseCAN.data.category);\r",
+							"    pm.expect(pm.environment.get(\"note_2_category\")).to.be.equal(responseCAN.data.category);\r",
 							"});\r",
 							"pm.test(\"8 - Assert user id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseCAN.data.user_id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseCAN.data.user_id);\r",
 							"});\r",
 							"\r",
 							""
@@ -1254,7 +1264,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"note_2_category\", _.sample(['Home', 'Work', 'Personal']));"
+							"pm.environment.set(\"note_2_category\", _.sample(['Home', 'Work', 'Personal']));"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1312,52 +1322,52 @@
 							"    pm.expect(responseGAN.message).to.be.equal(\"Notes successfully retrieved\");\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseGAN.data[1].id);\r",
+							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseGAN.data[1].id);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note title\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseGAN.data[1].title);\r",
+							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseGAN.data[1].title);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note description\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseGAN.data[1].description);\r",
+							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseGAN.data[1].description);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note category\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseGAN.data[1].category);\r",
+							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseGAN.data[1].category);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note completed\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_completed\")).to.be.equal(responseGAN.data[1].completed);\r",
+							"    pm.expect(pm.environment.get(\"note_completed\")).to.be.equal(responseGAN.data[1].completed);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note created_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseGAN.data[1].created_at);\r",
+							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseGAN.data[1].created_at);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note updated_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_updated_at\")).to.be.equal(responseGAN.data[1].updated_at);\r",
+							"    pm.expect(pm.environment.get(\"note_updated_at\")).to.be.equal(responseGAN.data[1].updated_at);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert user id for note\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseGAN.data[1].user_id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseGAN.data[1].user_id);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note 2 id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_id\")).to.be.equal(responseGAN.data[0].id);\r",
+							"    pm.expect(pm.environment.get(\"note_2_id\")).to.be.equal(responseGAN.data[0].id);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note 2 title\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_title\")).to.be.equal(responseGAN.data[0].title);\r",
+							"    pm.expect(pm.environment.get(\"note_2_title\")).to.be.equal(responseGAN.data[0].title);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note 2 description\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_description\")).to.be.equal(responseGAN.data[0].description);\r",
+							"    pm.expect(pm.environment.get(\"note_2_description\")).to.be.equal(responseGAN.data[0].description);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note 2 category\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_category\")).to.be.equal(responseGAN.data[0].category);\r",
+							"    pm.expect(pm.environment.get(\"note_2_category\")).to.be.equal(responseGAN.data[0].category);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note 2 completed\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_completed\")).to.be.equal(responseGAN.data[0].completed);\r",
+							"    pm.expect(pm.environment.get(\"note_2_completed\")).to.be.equal(responseGAN.data[0].completed);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note 2 created_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_created_at\")).to.be.equal(responseGAN.data[0].created_at);\r",
+							"    pm.expect(pm.environment.get(\"note_2_created_at\")).to.be.equal(responseGAN.data[0].created_at);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert note 2 updated_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_2_updated_at\")).to.be.equal(responseGAN.data[0].updated_at);\r",
+							"    pm.expect(pm.environment.get(\"note_2_updated_at\")).to.be.equal(responseGAN.data[0].updated_at);\r",
 							"});\r",
 							"pm.test(\"9.1 - Assert user id for note 2\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseGAN.data[0].user_id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseGAN.data[0].user_id);\r",
 							"});\r",
 							""
 						],
@@ -1368,8 +1378,11 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"packages": {},
-						"type": "text/javascript"
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -1510,32 +1523,39 @@
 							"    pm.expect(responseGN.message).to.be.equal(\"Note successfully retrieved\");\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert note id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseGN.data.id);\r",
+							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseGN.data.id);\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert note title\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseGN.data.title);\r",
+							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseGN.data.title);\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert note description\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseGN.data.description);\r",
+							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseGN.data.description);\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert note category\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseGN.data.category);\r",
+							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseGN.data.category);\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert note completed\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_completed\")).to.be.equal(responseGN.data.completed);\r",
+							"    pm.expect(pm.environment.get(\"note_completed\")).to.be.equal(responseGN.data.completed);\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert note created_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseGN.data.created_at);\r",
+							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseGN.data.created_at);\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert note updated_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_updated_at\")).to.be.equal(responseGN.data.updated_at);\r",
+							"    pm.expect(pm.environment.get(\"note_updated_at\")).to.be.equal(responseGN.data.updated_at);\r",
 							"});\r",
 							"pm.test(\"10.1 - Assert user id for note\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseGN.data.user_id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseGN.data.user_id);\r",
 							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -1670,10 +1690,10 @@
 							"let responseUN = pm.response.json();\r",
 							"let requestUN = JSON.parse(pm.request.body.raw);\r",
 							"\r",
-							"pm.globals.set(\"note_title\", requestUN.title);\r",
-							"pm.globals.set(\"note_description\", requestUN.description);\r",
-							"pm.globals.set(\"note_category\", requestUN.category);\r",
-							"pm.globals.set(\"note_completed\", requestUN.completed);\r",
+							"pm.environment.set(\"note_title\", requestUN.title);\r",
+							"pm.environment.set(\"note_description\", requestUN.description);\r",
+							"pm.environment.set(\"note_category\", requestUN.category);\r",
+							"pm.environment.set(\"note_completed\", requestUN.completed);\r",
 							"\r",
 							"pm.test(\"11.1  - Check update an existing note success\", function () {\r",
 							"    pm.expect(responseUN.success).to.be.equal(true);\r",
@@ -1685,26 +1705,26 @@
 							"    pm.expect(responseUN.message).to.be.equal(\"Note successfully Updated\");\r",
 							"});\r",
 							"pm.test(\"11.1  - Assert note id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseUN.data.id);\r",
+							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseUN.data.id);\r",
 							"});\r",
 							"pm.test(\"11.1  - Assert note title\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseUN.data.title);\r",
+							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseUN.data.title);\r",
 							"});\r",
 							"pm.test(\"11.1  - Assert note description\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseUN.data.description);\r",
+							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseUN.data.description);\r",
 							"});\r",
 							"pm.test(\"11.1  - Assert note category\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseUN.data.category);\r",
+							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseUN.data.category);\r",
 							"});\r",
 							"pm.test(\"11.1  - Assert note completed\", function () {\r",
 							"    // It uses == due to the fact that the compared values are a boolean and a string\r",
-							"    pm.expect(pm.globals.get(\"note_completed\")) == (responseUN.data.completed);\r",
+							"    pm.expect(pm.environment.get(\"note_completed\")) == (responseUN.data.completed);\r",
 							"});\r",
 							"pm.test(\"11.1  - Assert note created_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseUN.data.created_at);\r",
+							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseUN.data.created_at);\r",
 							"});\r",
 							"pm.test(\"11.1  - Assert user id for note\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseUN.data.user_id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseUN.data.user_id);\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -1715,7 +1735,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
+							"pm.environment.set(\"note_category\", _.sample(['Home', 'Work', 'Personal']));"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1843,7 +1863,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"note_category_UR\", _.sample(['Home', 'Work', 'Personal']));"
+							"pm.environment.set(\"note_category_UR\", _.sample(['Home', 'Work', 'Personal']));"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1890,7 +1910,7 @@
 							"let responseUCSN = pm.response.json();\r",
 							"let requestUCSN = JSON.parse(pm.request.body.raw);\r",
 							"\r",
-							"pm.globals.set(\"note_completed\", requestUCSN.completed);\r",
+							"pm.environment.set(\"note_completed\", requestUCSN.completed);\r",
 							"\r",
 							"pm.test(\"12.1 - Check update the completed status of a note success\", function () {\r",
 							"    pm.expect(responseUCSN.success).to.be.equal(true);\r",
@@ -1902,26 +1922,26 @@
 							"    pm.expect(responseUCSN.message).to.be.equal(\"Note successfully Updated\");\r",
 							"});\r",
 							"pm.test(\"12.1 - Assert note id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_id\")).to.be.equal(responseUCSN.data.id);\r",
+							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseUCSN.data.id);\r",
 							"});\r",
 							"pm.test(\"12.1 - Assert note title\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_title\")).to.be.equal(responseUCSN.data.title);\r",
+							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseUCSN.data.title);\r",
 							"});\r",
 							"pm.test(\"12.1 - Assert note description\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_description\")).to.be.equal(responseUCSN.data.description);\r",
+							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseUCSN.data.description);\r",
 							"});\r",
 							"pm.test(\"12.1 - Assert note category\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_category\")).to.be.equal(responseUCSN.data.category);\r",
+							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseUCSN.data.category);\r",
 							"});\r",
 							"pm.test(\"12.1 - Assert note completed\", function () {\r",
 							"    // It uses == due to the fact that the compared values are a boolean and a string\r",
-							"    pm.expect(pm.globals.get(\"note_completed\")) == (responseUCSN.data.completed);\r",
+							"    pm.expect(pm.environment.get(\"note_completed\")) == (responseUCSN.data.completed);\r",
 							"});\r",
 							"pm.test(\"12.1 - Assert note created_at\", function () {\r",
-							"    pm.expect(pm.globals.get(\"note_created_at\")).to.be.equal(responseUCSN.data.created_at);\r",
+							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseUCSN.data.created_at);\r",
 							"});\r",
 							"pm.test(\"12.1 - Assert user id for note\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseUCSN.data.user_id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseUCSN.data.user_id);\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -1932,11 +1952,11 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"if (pm.globals.get(\"note_completed\") == false) { \r",
-							"pm.globals.set(\"note_completed\", true);\r",
+							"if (pm.environment.get(\"note_completed\") == false) { \r",
+							"pm.environment.set(\"note_completed\", true);\r",
 							"}\r",
 							"else { \r",
-							"pm.globals.set(\"note_completed\", false);\r",
+							"pm.environment.set(\"note_completed\", false);\r",
 							"}"
 						],
 						"type": "text/javascript",
@@ -2065,11 +2085,11 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"if (pm.globals.get(\"note_completed\") == false) { \r",
-							"pm.globals.set(\"note_completed\", true);\r",
+							"if (pm.environment.get(\"note_completed\") == false) { \r",
+							"pm.environment.set(\"note_completed_UR\", true);\r",
 							"}\r",
 							"else { \r",
-							"pm.globals.set(\"note_completed\", false);\r",
+							"pm.environment.set(\"note_completed_UR\", false);\r",
 							"}"
 						],
 						"type": "text/javascript",
@@ -2087,7 +2107,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"completed\":\"{{note_completed}}\"\r\n}",
+					"raw": "{\r\n    \"completed\":\"{{note_completed_UR}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2396,7 +2416,7 @@
 						"exec": [
 							"let responseLIALOU = pm.response.json();\r",
 							"\r",
-							"pm.globals.set(\"user_token\", responseLIALOU.data.token);\r",
+							"pm.environment.set(\"user_token\", responseLIALOU.data.token);\r",
 							"\r",
 							"pm.test(\"15 - Check log in after log out success\", function () {\r",
 							"    pm.expect(responseLIALOU.success).to.be.equal(true);\r",
@@ -2408,17 +2428,24 @@
 							"    pm.expect(responseLIALOU.message).to.be.equal(\"Login successful\");\r",
 							"});\r",
 							"pm.test(\"15 - Assert user id\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_id\")).to.be.equal(responseLIALOU.data.id);\r",
+							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseLIALOU.data.id);\r",
 							"});\r",
 							"pm.test(\"15 - Assert user name\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_name\")).to.be.equal(responseLIALOU.data.name);\r",
+							"    pm.expect(pm.environment.get(\"user_name\")).to.be.equal(responseLIALOU.data.name);\r",
 							"});\r",
 							"pm.test(\"15 - Assert user e-mail\", function () {\r",
-							"    pm.expect(pm.globals.get(\"user_email\")).to.be.equal(responseLIALOU.data.email);\r",
+							"    pm.expect(pm.environment.get(\"user_email\")).to.be.equal(responseLIALOU.data.email);\r",
 							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
 					}
 				}
 			],

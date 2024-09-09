@@ -19,13 +19,13 @@ API testing in [expandtesting](https://practice.expandtesting.com/notes/api/api-
 - Open the project folder in terminal  ```npm install -g newman-reporter-htmlextra``` to install newman-reporter-htmlextra.
 - In Postman:
   - Hover the mouse on collection name and hit :point_right:**...** button, then hit :point_right:**Export** button to export the collection as a .json file to the project directory. 
-  - Hit :point_right:**Environment quick look**, hit :point_right:**Edit** and hit :point_right:**Export** to export the global variables file as a .json file in the same directory as the collection. 
+  - Hit :point_right:**Environment quick look**, hit :point_right:**Edit** and hit :point_right:**Export** to export the environment variables file as a .json file in the same directory as the collection. 
 
 # Tests:
 
-- Load expandtesting_ci.json and expandtesting_globals.json files on Postman and send the requests.
-- Execute ```newman run ./expandtesting_ci.json -g ./expandtesting_globals.json -r htmlextra --reporter-htmlextra-export ./results/report.html``` to run the collection via command line and store the report inside results folder inside project directory.
-- Execute ```newman run ./expandtesting_ci.json -g ./expandtesting_globals.json``` to run the collection via command line and have the results on terminal.
+- Load expandtesting.json and expandtesting_env.json files on Postman and send the requests.
+- Execute ```newman run ./expandtesting.json -g ./expandtesting_env.json -r htmlextra --reporter-htmlextra-export ./results/report.html``` to run the collection via command line and store the report inside results folder inside project directory.
+- Execute ```newman run ./expandtesting.json -g ./expandtesting_env.json``` to run the collection via command line and have the results on terminal.
 
 # Support:
 
