@@ -1,5 +1,5 @@
 {
-	"id": "96a4abf3-3923-4943-80b7-32ead54142ff",
+	"id": "b4342e74-864c-4af1-b8e2-4336598fd6fe",
 	"name": "expandtesting_env",
 	"values": [
 		{
@@ -7,153 +7,10 @@
 			"value": "https://practice.expandtesting.com/notes/api",
 			"type": "default",
 			"enabled": true
-		},
-		{
-			"key": "user_name",
-			"value": "Cecelia Pollich",
-			"type": "default",
-			"enabled": true
-		},
-		{
-			"key": "user_email",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "user_id",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "user_password",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "user_email_BR",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "user_token",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "user_phone",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "user_company",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_category",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_title",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_description",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_id",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_completed",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_created_at",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_updated_at",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_category_UR",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_2_category",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_2_title",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_2_description",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_2_id",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_2_completed",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_2_created_at",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_2_updated_at",
-			"value": "",
-			"type": "any",
-			"enabled": true
-		},
-		{
-			"key": "note_completed_UR",
-			"value": "",
-			"type": "any",
-			"enabled": true
 		}
 	],
+	"color": null,
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2024-09-09T05:49:25.996Z",
-	"_postman_exported_using": "Postman/11.11.1"
+	"_postman_exported_at": "2025-12-29T21:15:43.352Z",
+	"_postman_exported_using": "Postman/11.77.2"
 }
