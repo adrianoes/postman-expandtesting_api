@@ -1,3 +1,25 @@
+# Newman/Test Results
 /newman
 /results
+
+# Environment files
+.env
+.env.local
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
 commiting.txt

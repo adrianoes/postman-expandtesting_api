@@ -1,0 +1,33 @@
+{
+  "name": "postman-expandtesting-api",
+  "version": "1.0.0",
+  "description": "API testing for ExpandTesting Notes API with Postman/Newman and JIRA integration",
+  "main": "jira-reporter.js",
+  "scripts": {
+    "test": "newman run ./expandtesting.json --environment ./expandtesting_env.json --delay-request 1000 --disable-unicode",
+    "test:report": "newman run ./expandtesting.json --environment ./expandtesting_env.json -r cli,htmlextra,junit --reporter-htmlextra-export ./results/report.html --reporter-junit-export ./results/report.xml --delay-request 1000 --disable-unicode",
+    "test:filter": "node run-filtered-tests.js",
+    "test:jira": "npm run test:report && node jira-reporter.js",
+    "filter:jira": "node run-filter-jira.js",
+    "jira:report": "node jira-reporter.js"
+  },
+  "keywords": [
+    "postman",
+    "newman",
+    "api-testing",
+    "jira",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "form-data": "^4.0.0",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}

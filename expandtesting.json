@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "1 - Check the health of the API Notes services",
+			"name": "TC001 - Check the health of the API Notes services",
 			"event": [
 				{
 					"listen": "test",
@@ -64,7 +64,7 @@
 			"response": []
 		},
 		{
-			"name": "2.1 - Creates a new user account",
+			"name": "TC002 - Creates a new user account",
 			"event": [
 				{
 					"listen": "test",
@@ -176,7 +176,7 @@
 			"response": []
 		},
 		{
-			"name": "2.2 - Creates a new user account  - bad request",
+			"name": "TC003 - Creates a new user account - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -243,7 +243,7 @@
 			"response": []
 		},
 		{
-			"name": "3.1 - Log in as an existing user",
+			"name": "TC004 - Log in as an existing user",
 			"event": [
 				{
 					"listen": "test",
@@ -372,7 +372,7 @@
 			"response": []
 		},
 		{
-			"name": "3.2 - Log in as an existing user - bad request",
+			"name": "TC005 - Log in as an existing user - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -524,7 +524,7 @@
 			"response": []
 		},
 		{
-			"name": "3.3 - Log in as an existing user - unauthorized request",
+			"name": "TC006 - Log in as an existing user - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -674,7 +674,7 @@
 			"response": []
 		},
 		{
-			"name": "4.1 - Retrieve user profile information",
+			"name": "TC007 - Retrieve user profile information",
 			"event": [
 				{
 					"listen": "test",
@@ -815,7 +815,7 @@
 			"response": []
 		},
 		{
-			"name": "4.2 - Retrieve user profile information - bad request",
+			"name": "TC008 - Retrieve user profile information - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -984,7 +984,7 @@
 			"response": []
 		},
 		{
-			"name": "4.3 - Retrieve user profile information - unauthorized request",
+			"name": "TC009 - Retrieve user profile information - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -1153,7 +1153,7 @@
 			"response": []
 		},
 		{
-			"name": "5.1 - Update the user profile information",
+			"name": "TC010 - Update the user profile information",
 			"event": [
 				{
 					"listen": "test",
@@ -1324,7 +1324,7 @@
 			"response": []
 		},
 		{
-			"name": "5.2 - Update the user profile information - bad request",
+			"name": "TC011 - Update the user profile information - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -1493,7 +1493,7 @@
 			"response": []
 		},
 		{
-			"name": "5.3 - Update the user profile information - unauthorized request",
+			"name": "TC012 - Update the user profile information - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -1662,7 +1662,7 @@
 			"response": []
 		},
 		{
-			"name": "6.1 - Change a user's password",
+			"name": "TC013 - Change a user's password",
 			"event": [
 				{
 					"listen": "test",
@@ -1837,7 +1837,7 @@
 			"response": []
 		},
 		{
-			"name": "6.2 - Change a user's password - bad request",
+			"name": "TC014 - Change a user's password - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -2001,7 +2001,7 @@
 			"response": []
 		},
 		{
-			"name": "6.3 - Change a user's password - unauthorized request",
+			"name": "TC015 - Change a user's password - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -2165,7 +2165,7 @@
 			"response": []
 		},
 		{
-			"name": "7.1 - Creates a new note",
+			"name": "TC016 - Creates a new note",
 			"event": [
 				{
 					"listen": "test",
@@ -2359,7 +2359,7 @@
 			"response": []
 		},
 		{
-			"name": "7.2 - Creates a new note - bad request",
+			"name": "TC017 - Creates a new note - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -2532,7 +2532,7 @@
 			"response": []
 		},
 		{
-			"name": "7.3 - Creates a new note - unauthorized request",
+			"name": "TC018 - Creates a new note - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -2705,7 +2705,7 @@
 			"response": []
 		},
 		{
-			"name": "8.1 - Get all notes",
+			"name": "TC019 - Get all notes",
 			"event": [
 				{
 					"listen": "test",
@@ -2714,61 +2714,61 @@
 							"let responseGAN = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 9.1\r",
-							"pm.test(\"9.1 - Check get all notes success\", function () {\r",
+							"pm.test(\"8.1 - Check get all notes success\", function () {\r",
 							"    pm.expect(responseGAN.success).to.be.equal(true);\r",
 							"});\r",
-							"pm.test(\"9.1 - Check get all notes status\", function () {\r",
+							"pm.test(\"8.1 - Check get all notes status\", function () {\r",
 							"    pm.expect(responseGAN.status).to.be.equal(200);\r",
 							"});\r",
-							"pm.test(\"9.1 - Check get all notes message\", function () {\r",
+							"pm.test(\"8.1 - Check get all notes message\", function () {\r",
 							"    pm.expect(responseGAN.message).to.be.equal(\"Notes successfully retrieved\");\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note id\", function () {\r",
+							"pm.test(\"8.1 - Assert note id\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseGAN.data[1].id);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note title\", function () {\r",
+							"pm.test(\"8.1 - Assert note title\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseGAN.data[1].title);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note description\", function () {\r",
+							"pm.test(\"8.1 - Assert note description\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseGAN.data[1].description);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note category\", function () {\r",
+							"pm.test(\"8.1 - Assert note category\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseGAN.data[1].category);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note completed\", function () {\r",
+							"pm.test(\"8.1 - Assert note completed\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_completed\")).to.be.equal(responseGAN.data[1].completed);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note created_at\", function () {\r",
+							"pm.test(\"8.1 - Assert note created_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseGAN.data[1].created_at);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note updated_at\", function () {\r",
+							"pm.test(\"8.1 - Assert note updated_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_updated_at\")).to.be.equal(responseGAN.data[1].updated_at);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert user id for note\", function () {\r",
+							"pm.test(\"8.1 - Assert user id for note\", function () {\r",
 							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseGAN.data[1].user_id);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note 2 id\", function () {\r",
+							"pm.test(\"8.1 - Assert note 2 id\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_2_id\")).to.be.equal(responseGAN.data[0].id);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note 2 title\", function () {\r",
+							"pm.test(\"8.1 - Assert note 2 title\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_2_title\")).to.be.equal(responseGAN.data[0].title);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note 2 description\", function () {\r",
+							"pm.test(\"8.1 - Assert note 2 description\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_2_description\")).to.be.equal(responseGAN.data[0].description);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note 2 category\", function () {\r",
+							"pm.test(\"8.1 - Assert note 2 category\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_2_category\")).to.be.equal(responseGAN.data[0].category);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note 2 completed\", function () {\r",
+							"pm.test(\"8.1 - Assert note 2 completed\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_2_completed\")).to.be.equal(responseGAN.data[0].completed);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note 2 created_at\", function () {\r",
+							"pm.test(\"8.1 - Assert note 2 created_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_2_created_at\")).to.be.equal(responseGAN.data[0].created_at);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert note 2 updated_at\", function () {\r",
+							"pm.test(\"8.1 - Assert note 2 updated_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_2_updated_at\")).to.be.equal(responseGAN.data[0].updated_at);\r",
 							"});\r",
-							"pm.test(\"9.1 - Assert user id for note 2\", function () {\r",
+							"pm.test(\"8.1 - Assert user id for note 2\", function () {\r",
 							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseGAN.data[0].user_id);\r",
 							"});\r",
 							"\r",
@@ -3004,7 +3004,7 @@
 			"response": []
 		},
 		{
-			"name": "8.2 - Get all notes - bad request",
+			"name": "TC020 - Get all notes - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -3013,13 +3013,13 @@
 							"let responseGANBR = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 9.2\r",
-							"pm.test(\"9.2 - Check get all notes - bad request success\", function () {\r",
+							"pm.test(\"8.2 - Check get all notes - bad request success\", function () {\r",
 							"    pm.expect(responseGANBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"9.2 - Check get all notes - bad request status\", function () {\r",
+							"pm.test(\"8.2 - Check get all notes - bad request status\", function () {\r",
 							"    pm.expect(responseGANBR.status).to.be.equal(400);\r",
 							"});\r",
-							"pm.test(\"9.2 - Check get all notes - bad request message\", function () {\r",
+							"pm.test(\"8.2 - Check get all notes - bad request message\", function () {\r",
 							"    pm.expect(responseGANBR.message).to.be.equal(\"Invalid X-Content-Format header, Only application/json is supported.\");\r",
 							"});\r",
 							"\r",
@@ -3238,7 +3238,7 @@
 			"response": []
 		},
 		{
-			"name": "8.3 - Get all notes - unauthorized request",
+			"name": "TC021 - Get all notes - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -3247,13 +3247,13 @@
 							"let responseGANUR = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 9.3\r",
-							"pm.test(\"9.3 - Check get all notes - unauthorized request success\", function () {\r",
+							"pm.test(\"8.3 - Check get all notes - unauthorized request success\", function () {\r",
 							"    pm.expect(responseGANUR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"9.3 - Check get all notes - unauthorized request status\", function () {\r",
+							"pm.test(\"8.3 - Check get all notes - unauthorized request status\", function () {\r",
 							"    pm.expect(responseGANUR.status).to.be.equal(401);\r",
 							"});\r",
-							"pm.test(\"9.3 - Check get all notes - unauthorized request message\", function () {\r",
+							"pm.test(\"8.3 - Check get all notes - unauthorized request message\", function () {\r",
 							"    pm.expect(responseGANUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
 							"});\r",
 							"\r",
@@ -3472,7 +3472,7 @@
 			"response": []
 		},
 		{
-			"name": "9.1 - Get note by ID",
+			"name": "TC022 - Get note by ID",
 			"event": [
 				{
 					"listen": "test",
@@ -3481,37 +3481,37 @@
 							"let responseGN = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 10.1\r",
-							"pm.test(\"10.1 - Check get note by ID success\", function () {\r",
+							"pm.test(\"9.1 - Check get note by ID success\", function () {\r",
 							"    pm.expect(responseGN.success).to.be.equal(true);\r",
 							"});\r",
-							"pm.test(\"10.1 - Check get note by ID status\", function () {\r",
+							"pm.test(\"9.1 - Check get note by ID status\", function () {\r",
 							"    pm.expect(responseGN.status).to.be.equal(200);\r",
 							"});\r",
-							"pm.test(\"10.1 - Check get note by ID message\", function () {\r",
+							"pm.test(\"9.1 - Check get note by ID message\", function () {\r",
 							"    pm.expect(responseGN.message).to.be.equal(\"Note successfully retrieved\");\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert note id\", function () {\r",
+							"pm.test(\"9.1 - Assert note id\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseGN.data.id);\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert note title\", function () {\r",
+							"pm.test(\"9.1 - Assert note title\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseGN.data.title);\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert note description\", function () {\r",
+							"pm.test(\"9.1 - Assert note description\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseGN.data.description);\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert note category\", function () {\r",
+							"pm.test(\"9.1 - Assert note category\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseGN.data.category);\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert note completed\", function () {\r",
+							"pm.test(\"9.1 - Assert note completed\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_completed\")).to.be.equal(responseGN.data.completed);\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert note created_at\", function () {\r",
+							"pm.test(\"9.1 - Assert note created_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseGN.data.created_at);\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert note updated_at\", function () {\r",
+							"pm.test(\"9.1 - Assert note updated_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_updated_at\")).to.be.equal(responseGN.data.updated_at);\r",
 							"});\r",
-							"pm.test(\"10.1 - Assert user id for note\", function () {\r",
+							"pm.test(\"9.1 - Assert user id for note\", function () {\r",
 							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseGN.data.user_id);\r",
 							"});\r",
 							"\r",
@@ -3685,7 +3685,7 @@
 			"response": []
 		},
 		{
-			"name": "9.2 - Get note by ID - bad request",
+			"name": "TC023 - Get note by ID - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -3694,13 +3694,13 @@
 							"let responseGNBR = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 10.2\r",
-							"pm.test(\"10.2 - Check get note by ID - bad request success\", function () {\r",
+							"pm.test(\"9.2 - Check get note by ID - bad request success\", function () {\r",
 							"    pm.expect(responseGNBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"10.2 - Check get note by ID - bad request status\", function () {\r",
+							"pm.test(\"9.2 - Check get note by ID - bad request status\", function () {\r",
 							"    pm.expect(responseGNBR.status).to.be.equal(400);\r",
 							"});\r",
-							"pm.test(\"10.2 - Check get note by ID - bad request message\", function () {\r",
+							"pm.test(\"9.2 - Check get note by ID - bad request message\", function () {\r",
 							"    pm.expect(responseGNBR.message).to.be.equal(\"Invalid X-Content-Format header, Only application/json is supported.\");\r",
 							"});\r",
 							"\r",
@@ -3883,7 +3883,7 @@
 			"response": []
 		},
 		{
-			"name": "9.3 - Get note by ID - unauthorized request",
+			"name": "TC024 - Get note by ID - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -3892,13 +3892,13 @@
 							"let responseGNUR = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 10.3\r",
-							"pm.test(\"10.3 - Check get note by ID - unauthorized request success\", function () {\r",
+							"pm.test(\"9.3 - Check get note by ID - unauthorized request success\", function () {\r",
 							"    pm.expect(responseGNUR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"10.3 - Check get note by ID - unauthorized request status\", function () {\r",
+							"pm.test(\"9.3 - Check get note by ID - unauthorized request status\", function () {\r",
 							"    pm.expect(responseGNUR.status).to.be.equal(401);\r",
 							"});\r",
-							"pm.test(\"10.3 - Check get note by ID - unauthorized request message\", function () {\r",
+							"pm.test(\"9.3 - Check get note by ID - unauthorized request message\", function () {\r",
 							"    pm.expect(responseGNUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
 							"});\r",
 							"\r",
@@ -4081,7 +4081,7 @@
 			"response": []
 		},
 		{
-			"name": "10.1 - Update an existing note",
+			"name": "TC025 - Update an existing note",
 			"event": [
 				{
 					"listen": "test",
@@ -4096,34 +4096,34 @@
 							"pm.environment.set(\"note_category\", requestUN.category);\r",
 							"pm.environment.set(\"note_completed\", requestUN.completed);\r",
 							"\r",
-							"pm.test(\"11.1  - Check update an existing note success\", function () {\r",
+							"pm.test(\"10.1  - Check update an existing note success\", function () {\r",
 							"    pm.expect(responseUN.success).to.be.equal(true);\r",
 							"});\r",
-							"pm.test(\"11.1  - Check update an existing note status\", function () {\r",
+							"pm.test(\"10.1  - Check update an existing note status\", function () {\r",
 							"    pm.expect(responseUN.status).to.be.equal(200);\r",
 							"});\r",
-							"pm.test(\"11.1  - Check update an existing note message\", function () {\r",
+							"pm.test(\"10.1  - Check update an existing note message\", function () {\r",
 							"    pm.expect(responseUN.message).to.be.equal(\"Note successfully Updated\");\r",
 							"});\r",
-							"pm.test(\"11.1  - Assert note id\", function () {\r",
+							"pm.test(\"10.1  - Assert note id\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseUN.data.id);\r",
 							"});\r",
-							"pm.test(\"11.1  - Assert note title\", function () {\r",
+							"pm.test(\"10.1  - Assert note title\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseUN.data.title);\r",
 							"});\r",
-							"pm.test(\"11.1  - Assert note description\", function () {\r",
+							"pm.test(\"10.1  - Assert note description\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseUN.data.description);\r",
 							"});\r",
-							"pm.test(\"11.1  - Assert note category\", function () {\r",
+							"pm.test(\"10.1  - Assert note category\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseUN.data.category);\r",
 							"});\r",
-							"pm.test(\"11.1  - Assert note completed\", function () {\r",
+							"pm.test(\"10.1  - Assert note completed\", function () {\r",
 							"    pm.expect(String(pm.environment.get(\"note_completed\"))).to.equal(String(responseUN.data.completed));\r",
 							"});\r",
-							"pm.test(\"11.1  - Assert note created_at\", function () {\r",
+							"pm.test(\"10.1  - Assert note created_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseUN.data.created_at);\r",
 							"});\r",
-							"pm.test(\"11.1  - Assert user id for note\", function () {\r",
+							"pm.test(\"10.1  - Assert user id for note\", function () {\r",
 							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseUN.data.user_id);\r",
 							"});\r",
 							"\r",
@@ -4306,7 +4306,7 @@
 			"response": []
 		},
 		{
-			"name": "10.2 - Update an existing note - bad request",
+			"name": "TC026 - Update an existing note - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -4315,13 +4315,13 @@
 							"let responseUNBR = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 11.2\r",
-							"pm.test(\"11.2  - Check update an existing note - bad request success\", function () {\r",
+							"pm.test(\"10.2  - Check update an existing note - bad request success\", function () {\r",
 							"    pm.expect(responseUNBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"11.2  - Check update an existing note - bad request status\", function () {\r",
+							"pm.test(\"10.2  - Check update an existing note - bad request status\", function () {\r",
 							"    pm.expect(responseUNBR.status).to.be.equal(400);\r",
 							"});\r",
-							"pm.test(\"11.2  - Check update an existing note - bad request message\", function () {\r",
+							"pm.test(\"10.2  - Check update an existing note - bad request message\", function () {\r",
 							"    pm.expect(responseUNBR.message).to.be.equal(\"Category must be one of the categories: Home, Work, Personal\");\r",
 							"});\r",
 							"\r",
@@ -4520,7 +4520,7 @@
 			"response": []
 		},
 		{
-			"name": "10.3 - Update an existing note - unauthorized request",
+			"name": "TC027 - Update an existing note - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -4529,13 +4529,13 @@
 							"let responseUNUR = pm.response.json();\r",
 							"\r",
 							"// Testes do endpoint 11.3\r",
-							"pm.test(\"11.3  - Check update an existing note - unauthorized request success\", function () {\r",
+							"pm.test(\"10.3  - Check update an existing note - unauthorized request success\", function () {\r",
 							"    pm.expect(responseUNUR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"11.3  - Check update an existing note - unauthorized request status\", function () {\r",
+							"pm.test(\"10.3  - Check update an existing note - unauthorized request status\", function () {\r",
 							"    pm.expect(responseUNUR.status).to.be.equal(401);\r",
 							"});\r",
-							"pm.test(\"11.3  - Check update an existing note - unauthorized request message\", function () {\r",
+							"pm.test(\"10.3  - Check update an existing note - unauthorized request message\", function () {\r",
 							"    pm.expect(responseUNUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
 							"});\r",
 							"\r",
@@ -4734,7 +4734,7 @@
 			"response": []
 		},
 		{
-			"name": "11.1 - Update the completed status of a note",
+			"name": "TC028 - Update the completed status of a note",
 			"event": [
 				{
 					"listen": "test",
@@ -4745,34 +4745,34 @@
 							"\r",
 							"pm.environment.set(\"note_completed\", requestUCSN.completed);\r",
 							"\r",
-							"pm.test(\"12.1 - Check update the completed status of a note success\", function () {\r",
+							"pm.test(\"11.1 - Check update the completed status of a note success\", function () {\r",
 							"    pm.expect(responseUCSN.success).to.be.equal(true);\r",
 							"});\r",
-							"pm.test(\"12.1 - Check update the completed status of a note status\", function () {\r",
+							"pm.test(\"11.1 - Check update the completed status of a note status\", function () {\r",
 							"    pm.expect(responseUCSN.status).to.be.equal(200);\r",
 							"});\r",
-							"pm.test(\"12.1 - Check update the completed status of a note message\", function () {\r",
+							"pm.test(\"11.1 - Check update the completed status of a note message\", function () {\r",
 							"    pm.expect(responseUCSN.message).to.be.equal(\"Note successfully Updated\");\r",
 							"});\r",
-							"pm.test(\"12.1 - Assert note id\", function () {\r",
+							"pm.test(\"11.1 - Assert note id\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_id\")).to.be.equal(responseUCSN.data.id);\r",
 							"});\r",
-							"pm.test(\"12.1 - Assert note title\", function () {\r",
+							"pm.test(\"11.1 - Assert note title\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_title\")).to.be.equal(responseUCSN.data.title);\r",
 							"});\r",
-							"pm.test(\"12.1 - Assert note description\", function () {\r",
+							"pm.test(\"11.1 - Assert note description\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_description\")).to.be.equal(responseUCSN.data.description);\r",
 							"});\r",
-							"pm.test(\"12.1 - Assert note category\", function () {\r",
+							"pm.test(\"11.1 - Assert note category\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_category\")).to.be.equal(responseUCSN.data.category);\r",
 							"});\r",
-							"pm.test(\"12.1 - Assert note completed\", function () {\r",
+							"pm.test(\"11.1 - Assert note completed\", function () {\r",
 							"    pm.expect(String(pm.environment.get(\"note_completed\"))).to.equal(String(responseUCSN.data.completed));\r",
 							"});\r",
-							"pm.test(\"12.1 - Assert note created_at\", function () {\r",
+							"pm.test(\"11.1 - Assert note created_at\", function () {\r",
 							"    pm.expect(pm.environment.get(\"note_created_at\")).to.be.equal(responseUCSN.data.created_at);\r",
 							"});\r",
-							"pm.test(\"12.1 - Assert user id for note\", function () {\r",
+							"pm.test(\"11.1 - Assert user id for note\", function () {\r",
 							"    pm.expect(pm.environment.get(\"user_id\")).to.be.equal(responseUCSN.data.user_id);\r",
 							"});\r",
 							"\r",
@@ -4936,7 +4936,7 @@
 			"response": []
 		},
 		{
-			"name": "11.2 - Update the completed status of a note - bad request",
+			"name": "TC029 - Update the completed status of a note - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -4944,13 +4944,13 @@
 						"exec": [
 							"let responseUCSNBR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"12.2 - Check update the completed status of a note - bad request success\", function () {\r",
+							"pm.test(\"11.2 - Check update the completed status of a note - bad request success\", function () {\r",
 							"    pm.expect(responseUCSNBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"12.2 - Check update the completed status of a note - bad request status\", function () {\r",
+							"pm.test(\"11.2 - Check update the completed status of a note - bad request status\", function () {\r",
 							"    pm.expect(responseUCSNBR.status).to.be.equal(400);\r",
 							"});\r",
-							"pm.test(\"12.2 - Check update the completed status of a note - bad request message\", function () {\r",
+							"pm.test(\"11.2 - Check update the completed status of a note - bad request message\", function () {\r",
 							"    pm.expect(responseUCSNBR.message).to.be.equal(\"Note completed status must be boolean\");\r",
 							"});\r",
 							"\r",
@@ -5128,156 +5128,7 @@
 			"response": []
 		},
 		{
-			"name": "12.1 - Delete a note by ID",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let responseDN = pm.response.json();\r",
-							"\r",
-							"pm.test(\"13.3 - Check delete a note by ID success\", function () {\r",
-							"    pm.expect(responseDN.success).to.be.equal(true);\r",
-							"});\r",
-							"pm.test(\"13.3 - Check delete a note by ID status\", function () {\r",
-							"    pm.expect(responseDN.status).to.be.equal(200);\r",
-							"});\r",
-							"pm.test(\"13.3 - Check delete a note by ID message\", function () {\r",
-							"    pm.expect(responseDN.message).to.be.equal(\"Note successfully deleted\");\r",
-							"});\r",
-							"\r",
-							"// Cleanup: deletar usuário e limpar variáveis\r",
-							"const baseUrl = pm.environment.get(\"base_url\");\r",
-							"const token = pm.environment.get(\"user_token\");\r",
-							"\r",
-							"function unsetAll() {\r",
-							"    pm.environment.unset(\"user_id\");\r",
-							"    pm.environment.unset(\"user_name\");\r",
-							"    pm.environment.unset(\"user_email\");\r",
-							"    pm.environment.unset(\"user_password\");\r",
-							"    pm.environment.unset(\"user_token\");\r",
-							"    pm.environment.unset(\"note_id\");\r",
-							"    pm.environment.unset(\"note_title\");\r",
-							"    pm.environment.unset(\"note_description\");\r",
-							"    pm.environment.unset(\"note_category\");\r",
-							"    pm.environment.unset(\"note_completed\");\r",
-							"    pm.environment.unset(\"note_created_at\");\r",
-							"    pm.environment.unset(\"note_updated_at\");\r",
-							"}\r",
-							"\r",
-							"if (baseUrl && token) {\r",
-							"    pm.sendRequest({\r",
-							"        url: baseUrl + \"/users/delete-account\",\r",
-							"        method: \"DELETE\",\r",
-							"        header: { \"X-Auth-Token\": token }\r",
-							"    }, function () { unsetAll(); });\r",
-							"} else {\r",
-							"    unsetAll();\r",
-							"}"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"const baseUrl = pm.environment.get(\"base_url\");\r",
-							"\r",
-							"// Dados randômicos\r",
-							"const randomName = pm.variables.replaceIn(\"{{$randomFullName}}\");\r",
-							"const randomEmail = pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase();\r",
-							"const randomPassword = pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
-							"const randomCategory = _.sample(['Home', 'Work', 'Personal']);\r",
-							"const randomTitle = pm.variables.replaceIn(\"{{$randomWord}} {{$randomWord}}\");\r",
-							"const randomDescription = pm.variables.replaceIn(\"{{$randomWord}} {{$randomWord}} {{$randomWord}}\");\r",
-							"\r",
-							"// Persistir credenciais\r",
-							"pm.environment.set(\"user_name\", randomName);\r",
-							"pm.environment.set(\"user_email\", randomEmail);\r",
-							"pm.environment.set(\"user_password\", randomPassword);\r",
-							"pm.environment.unset(\"user_token\");\r",
-							"\r",
-							"// Criar usuário\r",
-							"pm.sendRequest({\r",
-							"    url: baseUrl + \"/users/register\",\r",
-							"    method: \"POST\",\r",
-							"    header: { \"Content-Type\": \"application/json\" },\r",
-							"    body: { mode: \"raw\", raw: JSON.stringify({ name: randomName, email: randomEmail, password: randomPassword }) }\r",
-							"}, function (err, res) {\r",
-							"    if (err || !res || res.code !== 201) { postman.setNextRequest(null); return; }\r",
-							"\r",
-							"    const body = res.json();\r",
-							"    pm.environment.set(\"user_id\", body.data.id);\r",
-							"\r",
-							"    // Login\r",
-							"    pm.sendRequest({\r",
-							"        url: baseUrl + \"/users/login\",\r",
-							"        method: \"POST\",\r",
-							"        header: { \"Content-Type\": \"application/json\" },\r",
-							"        body: { mode: \"raw\", raw: JSON.stringify({ email: randomEmail, password: randomPassword }) }\r",
-							"    }, function (err2, res2) {\r",
-							"        if (err2 || !res2 || res2.code !== 200) { postman.setNextRequest(null); return; }\r",
-							"        const login = res2.json();\r",
-							"        const token = login && login.data && login.data.token;\r",
-							"        if (!token) { postman.setNextRequest(null); return; }\r",
-							"        pm.environment.set(\"user_token\", token);\r",
-							"\r",
-							"        // Criar nota para deletar\r",
-							"        pm.sendRequest({\r",
-							"            url: baseUrl + \"/notes\",\r",
-							"            method: \"POST\",\r",
-							"            header: { \"Content-Type\": \"application/json\", \"X-Auth-Token\": token },\r",
-							"            body: { mode: \"raw\", raw: JSON.stringify({\r",
-							"                title: randomTitle,\r",
-							"                description: randomDescription,\r",
-							"                category: randomCategory\r",
-							"            }) }\r",
-							"        }, function (err3, res3) {\r",
-							"            if (err3 || !res3 || res3.code !== 200) { postman.setNextRequest(null); return; }\r",
-							"            const n = res3.json();\r",
-							"            pm.environment.set(\"note_id\", n.data.id);\r",
-							"            pm.environment.set(\"note_title\", n.data.title);\r",
-							"            pm.environment.set(\"note_description\", n.data.description);\r",
-							"            pm.environment.set(\"note_category\", n.data.category);\r",
-							"            pm.environment.set(\"note_completed\", n.data.completed);\r",
-							"            pm.environment.set(\"note_created_at\", n.data.created_at);\r",
-							"            pm.environment.set(\"note_updated_at\", n.data.updated_at);\r",
-							"        });\r",
-							"    });\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "X-Auth-Token",
-						"value": "{{user_token}}"
-					}
-				],
-				"url": {
-					"raw": "{{base_url}}/notes/{{note_id}}",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"notes",
-						"{{note_id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "11.3 - Update the completed status of a note - unauthorized request",
+			"name": "TC030 - Update the completed status of a note - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -5285,13 +5136,13 @@
 						"exec": [
 							"let responseUCSNUR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"12.3 - Check update the completed status of a note - unauthorized request success\", function () {\r",
+							"pm.test(\"11.3 - Check update the completed status of a note - unauthorized request success\", function () {\r",
 							"    pm.expect(responseUCSNUR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"12.3 - Check update the completed status of a note - unauthorized request status\", function () {\r",
+							"pm.test(\"11.3 - Check update the completed status of a note - unauthorized request status\", function () {\r",
 							"    pm.expect(responseUCSNUR.status).to.be.equal(401);\r",
 							"});\r",
-							"pm.test(\"12.3 - Check update the completed status of a note - unauthorized request message\", function () {\r",
+							"pm.test(\"11.3 - Check update the completed status of a note - unauthorized request message\", function () {\r",
 							"    pm.expect(responseUCSNUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
 							"});\r",
 							"\r",
@@ -5469,7 +5320,156 @@
 			"response": []
 		},
 		{
-			"name": "12.2 - Delete a note by ID - bad request",
+			"name": "TC031 - Delete a note by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseDN = pm.response.json();\r",
+							"\r",
+							"pm.test(\"12.1 - Check delete a note by ID success\", function () {\r",
+							"    pm.expect(responseDN.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"12.1 - Check delete a note by ID status\", function () {\r",
+							"    pm.expect(responseDN.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"12.1 - Check delete a note by ID message\", function () {\r",
+							"    pm.expect(responseDN.message).to.be.equal(\"Note successfully deleted\");\r",
+							"});\r",
+							"\r",
+							"// Cleanup: deletar usuário e limpar variáveis\r",
+							"const baseUrl = pm.environment.get(\"base_url\");\r",
+							"const token = pm.environment.get(\"user_token\");\r",
+							"\r",
+							"function unsetAll() {\r",
+							"    pm.environment.unset(\"user_id\");\r",
+							"    pm.environment.unset(\"user_name\");\r",
+							"    pm.environment.unset(\"user_email\");\r",
+							"    pm.environment.unset(\"user_password\");\r",
+							"    pm.environment.unset(\"user_token\");\r",
+							"    pm.environment.unset(\"note_id\");\r",
+							"    pm.environment.unset(\"note_title\");\r",
+							"    pm.environment.unset(\"note_description\");\r",
+							"    pm.environment.unset(\"note_category\");\r",
+							"    pm.environment.unset(\"note_completed\");\r",
+							"    pm.environment.unset(\"note_created_at\");\r",
+							"    pm.environment.unset(\"note_updated_at\");\r",
+							"}\r",
+							"\r",
+							"if (baseUrl && token) {\r",
+							"    pm.sendRequest({\r",
+							"        url: baseUrl + \"/users/delete-account\",\r",
+							"        method: \"DELETE\",\r",
+							"        header: { \"X-Auth-Token\": token }\r",
+							"    }, function () { unsetAll(); });\r",
+							"} else {\r",
+							"    unsetAll();\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const baseUrl = pm.environment.get(\"base_url\");\r",
+							"\r",
+							"// Dados randômicos\r",
+							"const randomName = pm.variables.replaceIn(\"{{$randomFullName}}\");\r",
+							"const randomEmail = pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase();\r",
+							"const randomPassword = pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+							"const randomCategory = _.sample(['Home', 'Work', 'Personal']);\r",
+							"const randomTitle = pm.variables.replaceIn(\"{{$randomWord}} {{$randomWord}}\");\r",
+							"const randomDescription = pm.variables.replaceIn(\"{{$randomWord}} {{$randomWord}} {{$randomWord}}\");\r",
+							"\r",
+							"// Persistir credenciais\r",
+							"pm.environment.set(\"user_name\", randomName);\r",
+							"pm.environment.set(\"user_email\", randomEmail);\r",
+							"pm.environment.set(\"user_password\", randomPassword);\r",
+							"pm.environment.unset(\"user_token\");\r",
+							"\r",
+							"// Criar usuário\r",
+							"pm.sendRequest({\r",
+							"    url: baseUrl + \"/users/register\",\r",
+							"    method: \"POST\",\r",
+							"    header: { \"Content-Type\": \"application/json\" },\r",
+							"    body: { mode: \"raw\", raw: JSON.stringify({ name: randomName, email: randomEmail, password: randomPassword }) }\r",
+							"}, function (err, res) {\r",
+							"    if (err || !res || res.code !== 201) { postman.setNextRequest(null); return; }\r",
+							"\r",
+							"    const body = res.json();\r",
+							"    pm.environment.set(\"user_id\", body.data.id);\r",
+							"\r",
+							"    // Login\r",
+							"    pm.sendRequest({\r",
+							"        url: baseUrl + \"/users/login\",\r",
+							"        method: \"POST\",\r",
+							"        header: { \"Content-Type\": \"application/json\" },\r",
+							"        body: { mode: \"raw\", raw: JSON.stringify({ email: randomEmail, password: randomPassword }) }\r",
+							"    }, function (err2, res2) {\r",
+							"        if (err2 || !res2 || res2.code !== 200) { postman.setNextRequest(null); return; }\r",
+							"        const login = res2.json();\r",
+							"        const token = login && login.data && login.data.token;\r",
+							"        if (!token) { postman.setNextRequest(null); return; }\r",
+							"        pm.environment.set(\"user_token\", token);\r",
+							"\r",
+							"        // Criar nota para deletar\r",
+							"        pm.sendRequest({\r",
+							"            url: baseUrl + \"/notes\",\r",
+							"            method: \"POST\",\r",
+							"            header: { \"Content-Type\": \"application/json\", \"X-Auth-Token\": token },\r",
+							"            body: { mode: \"raw\", raw: JSON.stringify({\r",
+							"                title: randomTitle,\r",
+							"                description: randomDescription,\r",
+							"                category: randomCategory\r",
+							"            }) }\r",
+							"        }, function (err3, res3) {\r",
+							"            if (err3 || !res3 || res3.code !== 200) { postman.setNextRequest(null); return; }\r",
+							"            const n = res3.json();\r",
+							"            pm.environment.set(\"note_id\", n.data.id);\r",
+							"            pm.environment.set(\"note_title\", n.data.title);\r",
+							"            pm.environment.set(\"note_description\", n.data.description);\r",
+							"            pm.environment.set(\"note_category\", n.data.category);\r",
+							"            pm.environment.set(\"note_completed\", n.data.completed);\r",
+							"            pm.environment.set(\"note_created_at\", n.data.created_at);\r",
+							"            pm.environment.set(\"note_updated_at\", n.data.updated_at);\r",
+							"        });\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/notes/{{note_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC032 - Delete a note by ID - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -5477,13 +5477,13 @@
 						"exec": [
 							"let responseDNBR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"13.1 - Check delete a note by ID - bad request success\", function () {\r",
+							"pm.test(\"12.2 - Check delete a note by ID - bad request success\", function () {\r",
 							"    pm.expect(responseDNBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"13.1 - Check delete a note by ID - bad request status\", function () {\r",
+							"pm.test(\"12.2 - Check delete a note by ID - bad request status\", function () {\r",
 							"    pm.expect(responseDNBR.status).to.be.equal(400);\r",
 							"});\r",
-							"pm.test(\"13.1 - Check delete a note by ID - bad request message\", function () {\r",
+							"pm.test(\"12.2 - Check delete a note by ID - bad request message\", function () {\r",
 							"    pm.expect(responseDNBR.message).to.be.equal(\"Note ID must be a valid ID\");\r",
 							"});\r",
 							"\r",
@@ -5645,138 +5645,7 @@
 			"response": []
 		},
 		{
-			"name": "13.1 - Log out a user",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let responseLOU = pm.response.json();\r",
-							"\r",
-							"pm.test(\"14.3 - Check log out a user success\", function () {\r",
-							"    pm.expect(responseLOU.success).to.be.equal(true);\r",
-							"});\r",
-							"pm.test(\"14.3 - Check log out a user status\", function () {\r",
-							"    pm.expect(responseLOU.status).to.be.equal(200);\r",
-							"});\r",
-							"pm.test(\"14.3 - Check log out a user message\", function () {\r",
-							"    pm.expect(responseLOU.message).to.be.equal(\"User has been successfully logged out\");\r",
-							"});\r",
-							"\r",
-							"// Cleanup: relogar para obter novo token e deletar usuário\r",
-							"const baseUrl = pm.environment.get(\"base_url\");\r",
-							"const email = pm.environment.get(\"user_email\");\r",
-							"const password = pm.environment.get(\"user_password\");\r",
-							"\r",
-							"function unsetAll() {\r",
-							"    pm.environment.unset(\"user_id\");\r",
-							"    pm.environment.unset(\"user_name\");\r",
-							"    pm.environment.unset(\"user_email\");\r",
-							"    pm.environment.unset(\"user_password\");\r",
-							"    pm.environment.unset(\"user_token\");\r",
-							"}\r",
-							"\r",
-							"if (baseUrl && email && password) {\r",
-							"    pm.sendRequest({\r",
-							"        url: baseUrl + \"/users/login\",\r",
-							"        method: \"POST\",\r",
-							"        header: { \"Content-Type\": \"application/json\" },\r",
-							"        body: { mode: \"raw\", raw: JSON.stringify({ email, password }) }\r",
-							"    }, function (err, res) {\r",
-							"        if (err || !res || res.code !== 200) { unsetAll(); return; }\r",
-							"        const login = res.json();\r",
-							"        const token = login && login.data && login.data.token;\r",
-							"        if (!token) { unsetAll(); return; }\r",
-							"\r",
-							"        pm.environment.set(\"user_token\", token);\r",
-							"\r",
-							"        pm.sendRequest({\r",
-							"            url: baseUrl + \"/users/delete-account\",\r",
-							"            method: \"DELETE\",\r",
-							"            header: { \"X-Auth-Token\": token }\r",
-							"        }, function () { unsetAll(); });\r",
-							"    });\r",
-							"} else {\r",
-							"    unsetAll();\r",
-							"}"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"const baseUrl = pm.environment.get(\"base_url\");\r",
-							"\r",
-							"// Dados randômicos\r",
-							"const randomName = pm.variables.replaceIn(\"{{$randomFullName}}\");\r",
-							"const randomEmail = pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase();\r",
-							"const randomPassword = pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
-							"\r",
-							"// Persistir\r",
-							"pm.environment.set(\"user_name\", randomName);\r",
-							"pm.environment.set(\"user_email\", randomEmail);\r",
-							"pm.environment.set(\"user_password\", randomPassword);\r",
-							"pm.environment.unset(\"user_token\");\r",
-							"\r",
-							"// Criar usuário\r",
-							"pm.sendRequest({\r",
-							"    url: baseUrl + \"/users/register\",\r",
-							"    method: \"POST\",\r",
-							"    header: { \"Content-Type\": \"application/json\" },\r",
-							"    body: { mode: \"raw\", raw: JSON.stringify({ name: randomName, email: randomEmail, password: randomPassword }) }\r",
-							"}, function (err, res) {\r",
-							"    if (err || !res || res.code !== 201) { postman.setNextRequest(null); return; }\r",
-							"    const body = res.json();\r",
-							"    pm.environment.set(\"user_id\", body.data.id);\r",
-							"\r",
-							"    // Login para obter token\r",
-							"    pm.sendRequest({\r",
-							"        url: baseUrl + \"/users/login\",\r",
-							"        method: \"POST\",\r",
-							"        header: { \"Content-Type\": \"application/json\" },\r",
-							"        body: { mode: \"raw\", raw: JSON.stringify({ email: randomEmail, password: randomPassword }) }\r",
-							"    }, function (err2, res2) {\r",
-							"        if (err2 || !res2 || res2.code !== 200) { postman.setNextRequest(null); return; }\r",
-							"        const login = res2.json();\r",
-							"        const token = login && login.data && login.data.token;\r",
-							"        if (!token) { postman.setNextRequest(null); return; }\r",
-							"        pm.environment.set(\"user_token\", token);\r",
-							"    });\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "X-Auth-Token",
-						"value": "{{user_token}}"
-					}
-				],
-				"url": {
-					"raw": "{{base_url}}/users/logout",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"users",
-						"logout"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "12.3 - Delete a note by ID - unauthorized request",
+			"name": "TC033 - Delete a note by ID - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -5784,13 +5653,13 @@
 						"exec": [
 							"let responseDNUR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"13.2 - Check delete a note by ID - unauthorized request success\", function () {\r",
+							"pm.test(\"12.3 - Check delete a note by ID - unauthorized request success\", function () {\r",
 							"    pm.expect(responseDNUR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"13.2 - Check delete a note by ID - unauthorized request status\", function () {\r",
+							"pm.test(\"12.3 - Check delete a note by ID - unauthorized request status\", function () {\r",
 							"    pm.expect(responseDNUR.status).to.be.equal(401);\r",
 							"});\r",
-							"pm.test(\"13.2 - Check delete a note by ID - unauthorized request message\", function () {\r",
+							"pm.test(\"12.3 - Check delete a note by ID - unauthorized request message\", function () {\r",
 							"    pm.expect(responseDNUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
 							"});\r",
 							"\r",
@@ -5952,25 +5821,25 @@
 			"response": []
 		},
 		{
-			"name": "13.3 - Log out a user - unauthorized request",
+			"name": "TC034 - Log out a user",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"let responseLOUUR = pm.response.json();\r",
+							"let responseLOU = pm.response.json();\r",
 							"\r",
-							"pm.test(\"14.2 - Check log out a user - unauthorized request success\", function () {\r",
-							"    pm.expect(responseLOUUR.success).to.be.equal(false);\r",
+							"pm.test(\"13.1 - Check log out a user success\", function () {\r",
+							"    pm.expect(responseLOU.success).to.be.equal(true);\r",
 							"});\r",
-							"pm.test(\"14.2 - Check log out a user - unauthorized request status\", function () {\r",
-							"    pm.expect(responseLOUUR.status).to.be.equal(401);\r",
+							"pm.test(\"13.1 - Check log out a user status\", function () {\r",
+							"    pm.expect(responseLOU.status).to.be.equal(200);\r",
 							"});\r",
-							"pm.test(\"14.2 - Check log out a user - unauthorized request message\", function () {\r",
-							"    pm.expect(responseLOUUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
+							"pm.test(\"13.1 - Check log out a user message\", function () {\r",
+							"    pm.expect(responseLOU.message).to.be.equal(\"User has been successfully logged out\");\r",
 							"});\r",
 							"\r",
-							"// Cleanup: login e delete usuário\r",
+							"// Cleanup: relogar para obter novo token e deletar usuário\r",
 							"const baseUrl = pm.environment.get(\"base_url\");\r",
 							"const email = pm.environment.get(\"user_email\");\r",
 							"const password = pm.environment.get(\"user_password\");\r",
@@ -5993,8 +5862,9 @@
 							"        if (err || !res || res.code !== 200) { unsetAll(); return; }\r",
 							"        const login = res.json();\r",
 							"        const token = login && login.data && login.data.token;\r",
-							"        pm.environment.set(\"user_token\", token || \"\");\r",
 							"        if (!token) { unsetAll(); return; }\r",
+							"\r",
+							"        pm.environment.set(\"user_token\", token);\r",
 							"\r",
 							"        pm.sendRequest({\r",
 							"            url: baseUrl + \"/users/delete-account\",\r",
@@ -6065,12 +5935,7 @@
 				"header": [
 					{
 						"key": "X-Auth-Token",
-						"value": "@{{user_token}}"
-					},
-					{
-						"key": "",
-						"value": "",
-						"type": "text"
+						"value": "{{user_token}}"
 					}
 				],
 				"url": {
@@ -6087,108 +5952,7 @@
 			"response": []
 		},
 		{
-			"name": "14.1 - Delete user account",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let responseDU = pm.response.json();\r",
-							"\r",
-							"pm.test(\"16.1 - Check delete user account success\", function () {\r",
-							"    pm.expect(responseDU.success).to.be.equal(true);\r",
-							"});\r",
-							"pm.test(\"16.1 - Check delete user account status\", function () {\r",
-							"    pm.expect(responseDU.status).to.be.equal(200);\r",
-							"});\r",
-							"pm.test(\"16.1 - Check delete user account message\", function () {\r",
-							"    pm.expect(responseDU.message).to.be.equal(\"Account successfully deleted\");\r",
-							"});\r",
-							"\r",
-							"// Cleanup: apenas limpar variáveis (usuário já deletado)\r",
-							"pm.environment.unset(\"user_id\");\r",
-							"pm.environment.unset(\"user_name\");\r",
-							"pm.environment.unset(\"user_email\");\r",
-							"pm.environment.unset(\"user_password\");\r",
-							"pm.environment.unset(\"user_token\");"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"const baseUrl = pm.environment.get(\"base_url\");\r",
-							"\r",
-							"// Dados randômicos\r",
-							"const randomName = pm.variables.replaceIn(\"{{$randomFullName}}\");\r",
-							"const randomEmail = pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase();\r",
-							"const randomPassword = pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
-							"\r",
-							"// Persistir para uso e asserts\r",
-							"pm.environment.set(\"user_name\", randomName);\r",
-							"pm.environment.set(\"user_email\", randomEmail);\r",
-							"pm.environment.set(\"user_password\", randomPassword);\r",
-							"pm.environment.unset(\"user_token\");\r",
-							"\r",
-							"// Criar usuário\r",
-							"pm.sendRequest({\r",
-							"    url: baseUrl + \"/users/register\",\r",
-							"    method: \"POST\",\r",
-							"    header: { \"Content-Type\": \"application/json\" },\r",
-							"    body: { mode: \"raw\", raw: JSON.stringify({ name: randomName, email: randomEmail, password: randomPassword }) }\r",
-							"}, function (err, res) {\r",
-							"    if (err || !res || res.code !== 201) { postman.setNextRequest(null); return; }\r",
-							"    const body = res.json();\r",
-							"    pm.environment.set(\"user_id\", body.data.id);\r",
-							"\r",
-							"    // Login para obter token\r",
-							"    pm.sendRequest({\r",
-							"        url: baseUrl + \"/users/login\",\r",
-							"        method: \"POST\",\r",
-							"        header: { \"Content-Type\": \"application/json\" },\r",
-							"        body: { mode: \"raw\", raw: JSON.stringify({ email: randomEmail, password: randomPassword }) }\r",
-							"    }, function (err2, res2) {\r",
-							"        if (err2 || !res2 || res2.code !== 200) { postman.setNextRequest(null); return; }\r",
-							"        const login = res2.json();\r",
-							"        const token = login && login.data && login.data.token;\r",
-							"        if (!token) { postman.setNextRequest(null); return; }\r",
-							"        pm.environment.set(\"user_token\", token);\r",
-							"    });\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "X-Auth-Token",
-						"value": "{{user_token}}"
-					}
-				],
-				"url": {
-					"raw": "{{base_url}}/users/delete-account",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"users",
-						"delete-account"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "13.2 - Log out a user - bad request",
+			"name": "TC035 - Log out a user - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -6196,13 +5960,13 @@
 						"exec": [
 							"let responseLOUBR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"14.1 - Check log out a user - bad request success\", function () {\r",
+							"pm.test(\"13.2 - Check log out a user - bad request success\", function () {\r",
 							"    pm.expect(responseLOUBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"14.1 - Check log out a user - bad request status\", function () {\r",
+							"pm.test(\"13.2 - Check log out a user - bad request status\", function () {\r",
 							"    pm.expect(responseLOUBR.status).to.be.equal(400);\r",
 							"});\r",
-							"pm.test(\"14.1 - Check log out a user - bad request message\", function () {\r",
+							"pm.test(\"13.2 - Check log out a user - bad request message\", function () {\r",
 							"    pm.expect(responseLOUBR.message).to.be.equal(\"Invalid X-Content-Format header, Only application/json is supported.\");\r",
 							"});\r",
 							"\r",
@@ -6323,7 +6087,243 @@
 			"response": []
 		},
 		{
-			"name": "14.2 - Delete user account - bad request",
+			"name": "TC036 - Log out a user - unauthorized request [negative] [ur]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseLOUUR = pm.response.json();\r",
+							"\r",
+							"pm.test(\"13.3 - Check log out a user - unauthorized request success\", function () {\r",
+							"    pm.expect(responseLOUUR.success).to.be.equal(false);\r",
+							"});\r",
+							"pm.test(\"13.3 - Check log out a user - unauthorized request status\", function () {\r",
+							"    pm.expect(responseLOUUR.status).to.be.equal(401);\r",
+							"});\r",
+							"pm.test(\"13.3 - Check log out a user - unauthorized request message\", function () {\r",
+							"    pm.expect(responseLOUUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
+							"});\r",
+							"\r",
+							"// Cleanup: login e delete usuário\r",
+							"const baseUrl = pm.environment.get(\"base_url\");\r",
+							"const email = pm.environment.get(\"user_email\");\r",
+							"const password = pm.environment.get(\"user_password\");\r",
+							"\r",
+							"function unsetAll() {\r",
+							"    pm.environment.unset(\"user_id\");\r",
+							"    pm.environment.unset(\"user_name\");\r",
+							"    pm.environment.unset(\"user_email\");\r",
+							"    pm.environment.unset(\"user_password\");\r",
+							"    pm.environment.unset(\"user_token\");\r",
+							"}\r",
+							"\r",
+							"if (baseUrl && email && password) {\r",
+							"    pm.sendRequest({\r",
+							"        url: baseUrl + \"/users/login\",\r",
+							"        method: \"POST\",\r",
+							"        header: { \"Content-Type\": \"application/json\" },\r",
+							"        body: { mode: \"raw\", raw: JSON.stringify({ email, password }) }\r",
+							"    }, function (err, res) {\r",
+							"        if (err || !res || res.code !== 200) { unsetAll(); return; }\r",
+							"        const login = res.json();\r",
+							"        const token = login && login.data && login.data.token;\r",
+							"        pm.environment.set(\"user_token\", token || \"\");\r",
+							"        if (!token) { unsetAll(); return; }\r",
+							"\r",
+							"        pm.sendRequest({\r",
+							"            url: baseUrl + \"/users/delete-account\",\r",
+							"            method: \"DELETE\",\r",
+							"            header: { \"X-Auth-Token\": token }\r",
+							"        }, function () { unsetAll(); });\r",
+							"    });\r",
+							"} else {\r",
+							"    unsetAll();\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const baseUrl = pm.environment.get(\"base_url\");\r",
+							"\r",
+							"// Dados randômicos\r",
+							"const randomName = pm.variables.replaceIn(\"{{$randomFullName}}\");\r",
+							"const randomEmail = pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase();\r",
+							"const randomPassword = pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+							"\r",
+							"// Persistir\r",
+							"pm.environment.set(\"user_name\", randomName);\r",
+							"pm.environment.set(\"user_email\", randomEmail);\r",
+							"pm.environment.set(\"user_password\", randomPassword);\r",
+							"pm.environment.unset(\"user_token\");\r",
+							"\r",
+							"// Criar usuário\r",
+							"pm.sendRequest({\r",
+							"    url: baseUrl + \"/users/register\",\r",
+							"    method: \"POST\",\r",
+							"    header: { \"Content-Type\": \"application/json\" },\r",
+							"    body: { mode: \"raw\", raw: JSON.stringify({ name: randomName, email: randomEmail, password: randomPassword }) }\r",
+							"}, function (err, res) {\r",
+							"    if (err || !res || res.code !== 201) { postman.setNextRequest(null); return; }\r",
+							"    const body = res.json();\r",
+							"    pm.environment.set(\"user_id\", body.data.id);\r",
+							"\r",
+							"    // Login para obter token\r",
+							"    pm.sendRequest({\r",
+							"        url: baseUrl + \"/users/login\",\r",
+							"        method: \"POST\",\r",
+							"        header: { \"Content-Type\": \"application/json\" },\r",
+							"        body: { mode: \"raw\", raw: JSON.stringify({ email: randomEmail, password: randomPassword }) }\r",
+							"    }, function (err2, res2) {\r",
+							"        if (err2 || !res2 || res2.code !== 200) { postman.setNextRequest(null); return; }\r",
+							"        const login = res2.json();\r",
+							"        const token = login && login.data && login.data.token;\r",
+							"        if (!token) { postman.setNextRequest(null); return; }\r",
+							"        pm.environment.set(\"user_token\", token);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "@{{user_token}}"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/users/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC037 - Delete user account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseDU = pm.response.json();\r",
+							"\r",
+							"pm.test(\"14.1 - Check delete user account success\", function () {\r",
+							"    pm.expect(responseDU.success).to.be.equal(true);\r",
+							"});\r",
+							"pm.test(\"14.1 - Check delete user account status\", function () {\r",
+							"    pm.expect(responseDU.status).to.be.equal(200);\r",
+							"});\r",
+							"pm.test(\"14.1 - Check delete user account message\", function () {\r",
+							"    pm.expect(responseDU.message).to.be.equal(\"Account successfully deleted\");\r",
+							"});\r",
+							"\r",
+							"// Cleanup: apenas limpar variáveis (usuário já deletado)\r",
+							"pm.environment.unset(\"user_id\");\r",
+							"pm.environment.unset(\"user_name\");\r",
+							"pm.environment.unset(\"user_email\");\r",
+							"pm.environment.unset(\"user_password\");\r",
+							"pm.environment.unset(\"user_token\");"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const baseUrl = pm.environment.get(\"base_url\");\r",
+							"\r",
+							"// Dados randômicos\r",
+							"const randomName = pm.variables.replaceIn(\"{{$randomFullName}}\");\r",
+							"const randomEmail = pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase();\r",
+							"const randomPassword = pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+							"\r",
+							"// Persistir para uso e asserts\r",
+							"pm.environment.set(\"user_name\", randomName);\r",
+							"pm.environment.set(\"user_email\", randomEmail);\r",
+							"pm.environment.set(\"user_password\", randomPassword);\r",
+							"pm.environment.unset(\"user_token\");\r",
+							"\r",
+							"// Criar usuário\r",
+							"pm.sendRequest({\r",
+							"    url: baseUrl + \"/users/register\",\r",
+							"    method: \"POST\",\r",
+							"    header: { \"Content-Type\": \"application/json\" },\r",
+							"    body: { mode: \"raw\", raw: JSON.stringify({ name: randomName, email: randomEmail, password: randomPassword }) }\r",
+							"}, function (err, res) {\r",
+							"    if (err || !res || res.code !== 201) { postman.setNextRequest(null); return; }\r",
+							"    const body = res.json();\r",
+							"    pm.environment.set(\"user_id\", body.data.id);\r",
+							"\r",
+							"    // Login para obter token\r",
+							"    pm.sendRequest({\r",
+							"        url: baseUrl + \"/users/login\",\r",
+							"        method: \"POST\",\r",
+							"        header: { \"Content-Type\": \"application/json\" },\r",
+							"        body: { mode: \"raw\", raw: JSON.stringify({ email: randomEmail, password: randomPassword }) }\r",
+							"    }, function (err2, res2) {\r",
+							"        if (err2 || !res2 || res2.code !== 200) { postman.setNextRequest(null); return; }\r",
+							"        const login = res2.json();\r",
+							"        const token = login && login.data && login.data.token;\r",
+							"        if (!token) { postman.setNextRequest(null); return; }\r",
+							"        pm.environment.set(\"user_token\", token);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{user_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/users/delete-account",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"delete-account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC038 - Delete user account - bad request [negative] [br]",
 			"event": [
 				{
 					"listen": "test",
@@ -6331,13 +6331,13 @@
 						"exec": [
 							"let responseDUBR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"16.1 - Check delete user account - bad request success\", function () {\r",
+							"pm.test(\"14.2 - Check delete user account - bad request success\", function () {\r",
 							"    pm.expect(responseDUBR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"16.1 - Check delete user account - bad request status\", function () {\r",
+							"pm.test(\"14.2 - Check delete user account - bad request status\", function () {\r",
 							"    pm.expect(responseDUBR.status).to.be.equal(400);\r",
 							"});\r",
-							"pm.test(\"16.1 - Check delete user account - bad request message\", function () {\r",
+							"pm.test(\"14.2 - Check delete user account - bad request message\", function () {\r",
 							"    pm.expect(responseDUBR.message).to.be.equal(\"Invalid X-Content-Format header, Only application/json is supported.\");\r",
 							"});\r",
 							"\r",
@@ -6458,7 +6458,7 @@
 			"response": []
 		},
 		{
-			"name": "14.3 - Delete user account - unauthorized request",
+			"name": "TC039 - Delete user account - unauthorized request [negative] [ur]",
 			"event": [
 				{
 					"listen": "test",
@@ -6466,13 +6466,13 @@
 						"exec": [
 							"let responseDUUR = pm.response.json();\r",
 							"\r",
-							"pm.test(\"16.2 - Check delete user account - unauthorized request success\", function () {\r",
+							"pm.test(\"14.3 - Check delete user account - unauthorized request success\", function () {\r",
 							"    pm.expect(responseDUUR.success).to.be.equal(false);\r",
 							"});\r",
-							"pm.test(\"16.2 - Check delete user account - unauthorized request status\", function () {\r",
+							"pm.test(\"14.3 - Check delete user account - unauthorized request status\", function () {\r",
 							"    pm.expect(responseDUUR.status).to.be.equal(401);\r",
 							"});\r",
-							"pm.test(\"16.2 - Check delete user account - unauthorized request message\", function () {\r",
+							"pm.test(\"14.3 - Check delete user account - unauthorized request message\", function () {\r",
 							"    pm.expect(responseDUUR.message).to.be.equal(\"Access token is not valid or has expired, you will need to login\");\r",
 							"});\r",
 							"\r",
